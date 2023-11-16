@@ -1,7 +1,7 @@
 import './layout.css'
 function Layout() {
     return ( 
-        <div className="Layout">test</div>
+        <div className="Layout d-flex justify-content-center align-items-center">test</div>
      );
 }
 
