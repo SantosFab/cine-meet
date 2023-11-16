@@ -1,9 +1,5 @@
  .Header {
     background: linear-gradient(to right, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));
-}
-
-.Header .Container {
-    margin: 0;
-    padding: 0 16px;
+    padding:  8px 16px; 
     color: var(--bs-white);
 }
