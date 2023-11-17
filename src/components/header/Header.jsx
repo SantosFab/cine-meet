@@ -9,8 +9,15 @@ import {
   Container,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setInputValue } from "../../features/search";
+
+
 
 function Header() {
+  const inputValue = useSelector((state) => state.input.value );
+  const dispatch = useDispatch();
+
   return (
     <Navbar expand="lg" className="Header" bg="dark" variant="dark">
       <Container>
@@ -29,7 +36,7 @@ function Header() {
           <Form>
             <Row>
               <Col>
-                <Form.Control type="text" placeholder="Search" />
+                <Form.Control type="text" placeholder="Search" onChange={(e)=> dispatch(setInputValue(e.target.value))}/>
               </Col>
               <Col xs="auto">
                 <Button type="submit" className="me-3">
