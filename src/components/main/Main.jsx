@@ -1,7 +1,7 @@
 import "./main.css";
 import { Container, Card, ListGroup, Col } from "react-bootstrap";
 
-function Main() {
+function Main(props) {
   return (
     <div className="Main">
       <Container>

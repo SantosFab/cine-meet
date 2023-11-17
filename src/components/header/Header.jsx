@@ -9,11 +9,11 @@ import {
   Container,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { /* useSelector, */ useDispatch } from "react-redux";
 import { setInputValue } from "../../reducer/search";
 
 function Header() {
-  const inputValue = useSelector((state) => state.input.value);
+  // const inputValue = useSelector((state) => state.input.value);
   const dispatch = useDispatch();
 
   return (
