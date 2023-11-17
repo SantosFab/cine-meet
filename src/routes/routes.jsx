@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Api from "../page/app/App";
+import Api from "../page/App";
 import ErrorPage from "./errorPage/ErrorPage";
 import Home from "../page/home/Home";
 import About from "../page/about/About";

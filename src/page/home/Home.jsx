@@ -1,7 +1,11 @@
+import Main from "../../components/main/Main";
+
 function Home() {
-    return ( <div>
-        Home
-    </div> );
+  return (
+    <div>
+      <Main></Main>
+    </div>
+  );
 }
 
 export default Home;

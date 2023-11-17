@@ -1,31 +1,45 @@
 import "./header.css";
-import { Nav, Navbar, Form, Row, Col, Button } from "react-bootstrap";
-import {Link} from 'react-router-dom'
+import {
+  Nav,
+  Navbar,
+  Form,
+  Row,
+  Col,
+  Button,
+  Container,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <Navbar expand="lg" className="Header" bg="dark" variant="dark">
-      <Navbar.Brand href="/" className="ms-3">CineMeet</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav " className="Text-white" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Link to="/home">Home</Link>
-          <Link to="/layout">Link</Link>
-        </Nav>
-        <Form>
-          <Row>
-            <Col >
-              <Form.Control
-                type="text"
-                placeholder="Search"
-              />
-            </Col>
-            <Col xs="auto">
-              <Button type="submit" className="me-3">Submit</Button>
-            </Col>
-          </Row>
-        </Form>
-      </Navbar.Collapse>
+      <Container>
+        <Navbar.Brand href="/home" className="ms-3">
+          CineMeet
+        </Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav "
+          className="Text-white"
+        />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Link to="/home">Home</Link>
+            <Link to="/layout">Link</Link>
+          </Nav>
+          <Form>
+            <Row>
+              <Col>
+                <Form.Control type="text" placeholder="Search" />
+              </Col>
+              <Col xs="auto">
+                <Button type="submit" className="me-3">
+                  Submit
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 }
