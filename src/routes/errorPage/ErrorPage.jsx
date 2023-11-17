@@ -6,7 +6,7 @@ function ErrorPage() {
   console.error(error);
 
   return (
-    <div className="height">
+    <div className="ErrorPage">
       <h1>Oops!</h1>
       <p>Desculpe, ocorreu um erro inesperado.</p>
       <p>
