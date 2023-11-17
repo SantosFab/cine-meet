@@ -1,15 +1,14 @@
 import './App.css';
-import Header from '../header/Header'
-import About from '../about/About'
-import Home from "../home/Home";
+import { Outlet } from "react-router-dom";
+import Header from "../../components/header/Header";
 
 
-function App() {
+
+function App(props) {
   return (
     <div>
-      <Header/>
-      <Home></Home>
-      <About></About>
+      <Header></Header>
+      <Outlet/>
     </div>
   );
 }

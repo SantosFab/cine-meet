@@ -1,17 +1,18 @@
 import "./header.css";
 import { Nav, Navbar, Form, Row, Col, Button } from "react-bootstrap";
+import {Link} from 'react-router-dom'
 
 function Header() {
   return (
     <Navbar expand="lg" className="Header" bg="dark" variant="dark">
-      <Navbar.Brand href="#home" className="ms-3">CineMeet</Navbar.Brand>
+      <Navbar.Brand href="/" className="ms-3">CineMeet</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav " className="Text-white" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#link">Link</Nav.Link>
+          <Link to="/home">Home</Link>
+          <Link to="/layout">Link</Link>
         </Nav>
-        <Form inline>
+        <Form>
           <Row>
             <Col >
               <Form.Control
