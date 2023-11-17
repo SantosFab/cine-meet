@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import inputReducer from '../features/search'
+import inputReducer from '../reducer/search'
 
 export default configureStore({
   reducer: {

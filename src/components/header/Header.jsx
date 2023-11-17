@@ -10,12 +10,10 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setInputValue } from "../../features/search";
-
-
+import { setInputValue } from "../../reducer/search";
 
 function Header() {
-  const inputValue = useSelector((state) => state.input.value );
+  const inputValue = useSelector((state) => state.input.value);
   const dispatch = useDispatch();
 
   return (
@@ -36,7 +34,11 @@ function Header() {
           <Form>
             <Row>
               <Col>
-                <Form.Control type="text" placeholder="Search" onChange={(e)=> dispatch(setInputValue(e.target.value))}/>
+                <Form.Control
+                  type="text"
+                  placeholder="Pesquisar"
+                  onChange={(e) => dispatch(setInputValue(e.target.value))}
+                />
               </Col>
               <Col xs="auto">
                 <Button type="submit" className="me-3">
