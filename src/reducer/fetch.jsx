@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-/*  está funcionando certinho  */
+
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiToken = process.env.REACT_APP_API_TOKEN;
-
-console.log("API Key:", apiKey);
-console.log("API Token:", apiToken);
 
 export const fetchData = createAsyncThunk(
   "fetch/fetchData",
@@ -25,7 +22,7 @@ export const fetchData = createAsyncThunk(
         },
       }
     );
-    console.log(response.data);
+    console.log(response.data.results);
     return response.data;
   }
 );
