@@ -7,7 +7,7 @@ const AppRouter = () => (
     <Route index element={<Genre />} />
     <Route path="/home" element={<Genre />} />
     {arrayGenre.map((genre) => (
-      <Route path={`/${genre}`} element={<Genre />} />
+      <Route path={`/${genre}`} element={<Genre />} key={genre} />
     ))}
   </Routes>
 );
