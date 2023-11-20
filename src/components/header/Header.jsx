@@ -19,9 +19,9 @@ function Header() {
   return (
     <Navbar expand="lg" className="Header" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/home" className="ms-3">
+        <Link to="/home" className="navbar-brand ms-3">
           CineMeet
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav "
           className="Text-white"

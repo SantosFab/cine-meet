@@ -3,16 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from "react-redux";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import router from './routes/routes';
 import store from './store/store';
+import App from './page/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}/>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
