@@ -8,6 +8,7 @@ import {
   Button,
   Container,
 } from "react-bootstrap";
+import  arrayGenre  from "../../utils/Genre";
 import { Link } from "react-router-dom";
 import { /* useSelector, */ useDispatch } from "react-redux";
 import { setInputValue } from "../../reducer/search";
@@ -19,7 +20,7 @@ function Header() {
   return (
     <Navbar expand="lg" className="Header" bg="dark" variant="dark">
       <Container>
-        <Link to="/home" className="navbar-brand ms-3">
+        <Link to="/" className="navbar-brand ms-3">
           CineMeet
         </Link>
         <Navbar.Toggle
@@ -29,7 +30,11 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/home">Home</Link>
-            <Link to="/layout">Link</Link>
+            {arrayGenre.map((genre) => (
+              <Link to={`/${genre}`} key={genre}>
+                {genre}
+              </Link>
+            ))}
           </Nav>
           <Form>
             <Row>

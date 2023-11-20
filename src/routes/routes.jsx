@@ -1,12 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../page/home/Home";
-import About from "../page/about/About";
+import arrayGenre from "../utils/Genre";
+import Genre from "../page/genre/Genre";
 
 const AppRouter = () => (
   <Routes>
-    <Route index element={<Home />} />
-    <Route path="/home" element={<Home />} />
-    <Route path="/layout" element={<About />} />
+    <Route index element={<Genre />} />
+    <Route path="/home" element={<Genre />} />
+    {arrayGenre.map((genre) => (
+      <Route path={`/${genre}`} element={<Genre />} />
+    ))}
   </Routes>
 );
 
