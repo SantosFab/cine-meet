@@ -22,7 +22,6 @@ export const fetchData = createAsyncThunk(
         },
       }
     );
-    console.log(response.data.results);
     return response.data;
   }
 );

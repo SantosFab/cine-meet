@@ -1,36 +1,32 @@
 import "./main.css";
 import { Container, Card, ListGroup, Col } from "react-bootstrap";
+import { urlBaseImg } from "../../utils/Genre";
 
 function Main(props) {
+  const movies = props.movies;
+  console.log(movies);
   return (
     <div className="Main">
-      <Container>
-        <div className="ms-3 py-3 d-flex ">
-          <Col>
-            <Card style={{ width: "15rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-              </ListGroup>
-              <Card.Body>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
-              </Card.Body>
-            </Card>
-          </Col>
-        </div>
+      <Container className="d-flex flex-wrap justify-content-center">
+        {movies?.map((e) => (
+          <div className="ms-3 py-3 d-flex" key={e.id}>
+            <Col>
+              <Card className="Card">
+                <Card.Img variant="top" src={urlBaseImg + e.poster_path} />
+                <Card.Body>
+                  <Card.Title>{e.title}</Card.Title>
+                </Card.Body>
+                <ListGroup className="list-group-flush ">
+                  <ListGroup.Item className="">{e.overview !== '' ? e.overview : 'Não há descrição'}</ListGroup.Item>
+                </ListGroup>
+              </Card>
+            </Col>
+          </div>
+        ))}
       </Container>
     </div>
   );
 }
 
 export default Main;
+/* d-flex align-items-center */
