@@ -4,7 +4,7 @@
   min-height: 95vh;
 }
 
-.Main .Card {
+.Main .card {
   width: 15rem;
 }
 
@@ -22,8 +22,14 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  
+
   text-align: center;
+}
+
+.Main .list-group-flush {
+  height: 103.5px;
+  display: flex;
+  justify-content: center;
 }
 
 .Main .list-group-item {
@@ -31,11 +37,9 @@
   text-align: justify;
   -webkit-line-clamp: 5;
   padding: 4px 14px;
-  height: 103.5px;
-  text-overflow: ellipsis;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
+  text-overflow: ellipsis;
 }
 
 .Main .card-title,
@@ -43,4 +47,9 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.Main .descriptionVoid{
+  font-size: 1.2em;
+  font-weight: 700;
 }
