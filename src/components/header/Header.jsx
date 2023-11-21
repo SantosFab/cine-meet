@@ -46,11 +46,8 @@ function Header() {
                 />
               </Col>
               <Col xs="auto">
-                <Button type="submit" className="me-3">
-                  <i
-                    className="fa-solid fa-magnifying-glass"
-                    style={{color: "#294d5c"}}
-                  ></i>
+                <Button type="submit" className="me-3 btn btn-light">
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </Button>
               </Col>
             </Row>
