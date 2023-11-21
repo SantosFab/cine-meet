@@ -8,13 +8,13 @@ import {
   Button,
   Container,
 } from "react-bootstrap";
-import arrayGenre from "../../utils/Genre";
 import { Link } from "react-router-dom";
-import { /* useSelector, */ useDispatch } from "react-redux";
+import {  useSelector,  useDispatch } from "react-redux";
 import { setInputValue } from "../../reducer/search";
 
 function Header() {
   // const inputValue = useSelector((state) => state.input.value);
+  const arrayGenre = useSelector((state) => state.genre.arrayGenre)
   const dispatch = useDispatch();
 
   return (
@@ -31,8 +31,8 @@ function Header() {
           <Nav className="me-auto">
             <Link to="/home">Home</Link>
             {arrayGenre.map((genre) => (
-              <Link to={`/${genre}`} key={genre}>
-                {genre}
+              <Link to={`/${genre[0]}`} key={genre}>
+                {genre[0]}
               </Link>
             ))}
           </Nav>

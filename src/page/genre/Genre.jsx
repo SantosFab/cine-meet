@@ -9,8 +9,10 @@ function Genre() {
   const movies = useSelector((state) => {
     return state.fetch.data?.results;
   });
+  const urlBaseImg = useSelector((state)=> state.genre.urlBaseImg)
 
   const location = useLocation();
+  console.log(decodeURIComponent(location.pathname))
 
   useEffect(() => {
     dispatch(fetchData());
@@ -18,7 +20,7 @@ function Genre() {
 
   return (
     <div>
-      <Main movies={movies}></Main>
+      <Main movies={movies} urlBaseImg={urlBaseImg}></Main>
     </div>
   );
 }

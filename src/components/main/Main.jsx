@@ -1,10 +1,9 @@
 import "./main.css";
 import { Container, Card, ListGroup, Col } from "react-bootstrap";
-import { urlBaseImg } from "../../utils/Genre";
 
 function Main(props) {
   const movies = props.movies;
-  console.log(movies);
+  const urlBaseImg = props.urlBaseImg;
   return (
     <div className="Main">
       <Container className="d-flex flex-wrap justify-content-center">

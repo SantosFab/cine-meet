@@ -1,15 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import arrayGenre from "../utils/Genre";
+import { useSelector } from "react-redux";
 import Genre from "../page/genre/Genre";
 
-const AppRouter = () => (
-  <Routes>
-    <Route index element={<Genre />} />
-    <Route path="/home" element={<Genre />} />
-    {arrayGenre.map((genre) => (
-      <Route path={`/${genre}`} element={<Genre />} key={genre} />
-    ))}
-  </Routes>
-);
+const AppRouter = () => {
+  const arrayGenre = useSelector((state) => state.genre.arrayGenre);
+  return (
+    <Routes>
+      <Route index element={<Genre />} />
+      <Route path="/home" element={<Genre />} />
+      {arrayGenre.map((genre) => (
+        <Route path={`/${genre[0]}`} element={<Genre />} key={genre} />
+      ))}
+    </Routes>
+  );
+};
 
 export default AppRouter;
