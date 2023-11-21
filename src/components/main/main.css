@@ -7,6 +7,9 @@
 .Main .card {
   width: 15rem;
 }
+.Main .card-img-top {
+  height: 357px;
+}
 
 .Main .card-body {
   padding: 0 16px;
