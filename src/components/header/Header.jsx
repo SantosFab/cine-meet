@@ -29,7 +29,6 @@ function Header() {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/home">Home</Link>
             {arrayGenre.map((genre) => (
               <Link to={`/${genre[0]}`} key={genre}>
                 {genre[0]}
