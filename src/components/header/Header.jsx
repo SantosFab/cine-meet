@@ -8,7 +8,7 @@ import {
   Button,
   Container,
 } from "react-bootstrap";
-import  arrayGenre  from "../../utils/Genre";
+import arrayGenre from "../../utils/Genre";
 import { Link } from "react-router-dom";
 import { /* useSelector, */ useDispatch } from "react-redux";
 import { setInputValue } from "../../reducer/search";
@@ -18,7 +18,7 @@ function Header() {
   const dispatch = useDispatch();
 
   return (
-    <Navbar expand="lg" className="Header" bg="dark" variant="dark">
+    <Navbar expand="xl" className="Header" bg="dark" variant="dark">
       <Container>
         <Link to="/" className="navbar-brand ms-3">
           CineMeet
@@ -47,7 +47,10 @@ function Header() {
               </Col>
               <Col xs="auto">
                 <Button type="submit" className="me-3">
-                  Submit
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    style={{color: "#294d5c"}}
+                  ></i>
                 </Button>
               </Col>
             </Row>

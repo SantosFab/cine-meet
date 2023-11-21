@@ -19,7 +19,6 @@ export const arrayGenre = [
   "Documentário",
   "Drama",
   "Terror",
-  "Mistério",
   "Romance",
   "Ficção",
   "Guerra",

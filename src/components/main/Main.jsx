@@ -17,7 +17,7 @@ function Main(props) {
                   <Card.Title>{e.title}</Card.Title>
                 </Card.Body>
                 <ListGroup className="list-group-flush ">
-                  <ListGroup.Item className="">{e.overview !== '' ? e.overview : 'Não há descrição'}</ListGroup.Item>
+                  <ListGroup.Item>{e.overview !== '' ? e.overview : 'Não há descrição'}</ListGroup.Item>
                 </ListGroup>
               </Card>
             </Col>
