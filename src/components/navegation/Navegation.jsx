@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 
 function Navegation(props) {
   const currentPage = useSelector((state) => state.fetch.data?.page);
-  const totalPage = 500;
+  const isFiveHundred = useSelector((state) => state.fetch.data?.total_pages);
+  const totalPage = isFiveHundred < 500 ? isFiveHundred : 500;
   const urlLocation = props.urlLocation;
   const urlDefault = "Page";
 
@@ -72,7 +73,9 @@ function Navegation(props) {
           <></>
         )}
         <Pagination.Last
-          href={`/${urlLocation === "" ? urlDefault : urlLocation}/500`}
+          href={`/${
+            urlLocation === "" ? urlDefault : urlLocation
+          }/${totalPage}`}
         />
       </Pagination>
     </>
