@@ -1,17 +1,16 @@
-.Main {
-  background: linear-gradient(to right, rgb(211, 204, 227), rgb(233, 228, 240));
+.Cards {
   height: 100%;
   min-height: 95vh;
 }
 
-.Main .card {
+.Cards .card {
   width: 15rem;
 }
-.Main .card-img-top {
+.Cards .card-img-top {
   height: 357px;
 }
 
-.Main .card-body {
+.Cards .card-body {
   padding: 0 16px;
   margin-top: 8px;
   height: 39px;
@@ -20,7 +19,7 @@
   justify-content: center;
 }
 
-.Main .card-title {
+.Cards .card-title {
   font-size: 0.9em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -29,13 +28,13 @@
   text-align: center;
 }
 
-.Main .list-group-flush {
+.Cards .list-group-flush {
   height: 103.5px;
   display: flex;
   justify-content: center;
 }
 
-.Main .list-group-item {
+.Cards .list-group-item {
   font-size: 0.8em;
   text-align: justify;
   -webkit-line-clamp: 5;
@@ -45,14 +44,14 @@
   text-overflow: ellipsis;
 }
 
-.Main .card-title,
-.Main .list-group-item {
+.Cards .card-title,
+.Cards .list-group-item {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.Main .descriptionVoid{
+.Cards .descriptionVoid{
   font-size: 1.2em;
   font-weight: 700;
 }

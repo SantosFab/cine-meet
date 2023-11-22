@@ -1,11 +1,11 @@
-import "./main.css";
+import "./cards.css";
 import { Container, Card, ListGroup, Col } from "react-bootstrap";
 
 function Main(props) {
   const movies = props.movies;
   const urlBaseImg = props.urlBaseImg;
   return (
-    <div className="Main">
+    <div className="Cards">
       <Container className="d-flex flex-wrap justify-content-center">
         {movies?.map((e) => (
           <div className="ms-3 py-3 d-flex" key={e.id}>
