@@ -1,14 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Genre from "../components/genre/Genre";
+import DetailMovie from "../components/detailMovie/DetailMovie";
+import moviesUrl from "../utils/moviesUrl";
 
 const AppRouter = () => {
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
+
   return (
     <Routes>
       <Route index element={<Genre />} />
       <Route path={`/Page`} element={<Genre />} />
       <Route path={`/Page/:page`} element={<Genre />} />
+      <Route path={'/Detail/:movie'} element={<DetailMovie />} />
       {arrayGenre.map((genre) => (
         <Route path={`/${genre[0]}`} element={<Genre />} key={genre} />
       ))}
