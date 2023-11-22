@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Genre from "../page/genre/Genre";
+import Genre from "../components/genre/Genre";
 
 const AppRouter = () => {
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
@@ -9,6 +9,9 @@ const AppRouter = () => {
       <Route index element={<Genre />} />
       {arrayGenre.map((genre) => (
         <Route path={`/${genre[0]}`} element={<Genre />} key={genre} />
+      ))}
+      {arrayGenre.map((genre) => (
+        <Route path={`/${genre[0]}/:page`} element={<Genre />} key={genre} />
       ))}
     </Routes>
   );
