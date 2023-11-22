@@ -8,7 +8,7 @@ import Navegation from "../navegation/Navegation";
 
 function Genre() {
   const dispatch = useDispatch();
-  const { getPage } = useParams()
+  const { page } = useParams()
 
   const movies = useSelector((state) => state.fetch.data?.results);
   const urlBaseImg = useSelector((state) => state.genre.urlBaseImg);
@@ -20,9 +20,9 @@ function Genre() {
   useEffect(() => {
     const isGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
     if (isGenre !== undefined && isGenre[0] !== "Page") {
-      dispatch(fetchData({ genre: isGenre[1], page: getPage }));
+      dispatch(fetchData({ genre: isGenre[1], page: page }));
     }  else {
-      dispatch(fetchData({ page: getPage }));
+      dispatch(fetchData({ page: page }));
     }
   }, [useLocation()]);
 
