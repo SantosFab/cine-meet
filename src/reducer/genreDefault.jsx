@@ -16,6 +16,7 @@ const genreReducer = createSlice({
       ["Ficção", "878"],
       ["Guerra", "10752"],
       ["Séries"],
+      ['Page']
     ],
   },
 });
