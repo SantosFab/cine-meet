@@ -1,0 +1,9 @@
+.Genre {
+  background: linear-gradient(to right, rgb(211, 204, 227), rgb(233, 228, 240));
+}
+
+.Genre .pagination {
+    margin: 0;
+    padding-top: 8px;
+    padding-bottom: 24px;
+}
