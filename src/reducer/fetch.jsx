@@ -6,15 +6,15 @@ const apiToken = process.env.REACT_APP_API_TOKEN;
 
 export const fetchData = createAsyncThunk(
   "fetch/fetchData",
-  async (genre) => {
+  async (params) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`,
       {
         params: {
           language: "pt-BR",
-          page: "1",
+           page: params?.page ?? '1',
           sort_by: "popularity.desc",
-          with_genres: genre,
+          with_genres: params?.genre ?? '',
           api_key: apiKey,
         },
         headers: {
@@ -23,7 +23,6 @@ export const fetchData = createAsyncThunk(
         },
       }
     );
-    console.log(genre)
     return response.data;
   }
 );
