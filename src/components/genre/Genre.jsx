@@ -24,7 +24,7 @@ function Genre() {
     }  else {
       dispatch(fetchData({ page: page }));
     }
-  }, [useLocation()]);
+  }, [urlLocation, arrayGenre, dispatch, page]);
 
   return (
     <div className="Genre">

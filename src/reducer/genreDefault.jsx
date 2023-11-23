@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const genreReducer = createSlice({
   name: "genre",
   initialState: {
-    urlBaseImg: "https://image.tmdb.org/t/p/w500/",
+    urlBaseImg: "https://image.tmdb.org/t/p/original/",
     arrayGenre: [
       ["Ação", "28"],
       ["Aventura", "12"],
