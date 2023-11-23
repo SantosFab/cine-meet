@@ -1,21 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiKey = process.env.REACT_APP_API_KEY;
 const apiToken = process.env.REACT_APP_API_TOKEN;
 
-export const fetchData = createAsyncThunk(
-  "fetchMovies/fetchData",
-  async (params) => {
+export const fetchDetail = createAsyncThunk(
+  "fetchDetail/fetchData",
+  async (id) => {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`,
+      `https://api.themoviedb.org/3/movie/${id}`,
       {
         params: {
           language: "pt-BR",
-           page: params?.page ?? '1',
-          sort_by: "popularity.desc",
-          with_genres: params?.genre ?? '',
-          api_key: apiKey,
         },
         headers: {
           accept: "application/json",
@@ -28,18 +23,17 @@ export const fetchData = createAsyncThunk(
 );
 
 const fetchReducer = createSlice({
-  name: "fetchMovies",
+  name: "fetchDetail",
   initialState: {
     data: null,
     error: null,
   },
-  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchData.fulfilled, (state, action) => {
+    builder.addCase(fetchDetail.fulfilled, (state, action) => {
       state.data = action.payload;
       state.error = null;
     });
-    builder.addCase(fetchData.rejected, (state, action) => {
+    builder.addCase(fetchDetail.rejected, (state, action) => {
       state.data = null;
       state.error = action.error.message;
     });
