@@ -27,6 +27,7 @@ const fetchReducer = createSlice({
   initialState: {
     data: null,
     error: null,
+    urlBaseImg: 'https://image.tmdb.org/t/p/original/',
   },
   extraReducers: (builder) => {
     builder.addCase(fetchDetail.fulfilled, (state, action) => {

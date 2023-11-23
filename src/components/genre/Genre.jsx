@@ -1,17 +1,17 @@
 import "./genre.css";
-import Main from "../cards/Cards";
+import Cards from "../cards/Cards";
+import Navegation from "../navegation/Navegation";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchMovies } from "../../reducer/API/fetch/fetchMovies";
 import { useLocation, useParams } from "react-router-dom";
-import Navegation from "../navegation/Navegation";
 
 function Genre() {
   const dispatch = useDispatch();
   const { page } = useParams();
 
   const movies = useSelector((state) => state.fetchMovies.data?.results);
-  const urlBaseImg = useSelector((state) => state.genre.urlBaseImg);
+  const urlBaseImg = useSelector((state) => state.fetchMovies.urlBaseImg);
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
 
   //pegar através da url o gênero atual ou se estar acessando home
@@ -28,7 +28,7 @@ function Genre() {
 
   return (
     <div className="Genre">
-      <Main movies={movies} urlBaseImg={urlBaseImg} />
+      <Cards movies={movies} urlBaseImg={urlBaseImg} />
       <Navegation urlLocation={urlLocation} />
     </div>
   );
