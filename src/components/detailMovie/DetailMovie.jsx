@@ -1,11 +1,12 @@
-import { useLocation , useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 function DetailMovie() {
-  
-  const location = useLocation();
-  console.log("Location state:", useParams());
-  console.log("Location state:", location);
+  const { movieId } = useParams();
 
+  useEffect(() => {
+    
+  }, [movieId]);
 
   return (
     <>

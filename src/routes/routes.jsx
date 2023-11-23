@@ -11,7 +11,7 @@ const AppRouter = () => {
       <Route index element={<Genre />} />
       <Route path={`/Page`} element={<Genre />} />
       <Route path={`/Page/:page`} element={<Genre />} />
-      <Route path={'/Detail/:movie'} element={<DetailMovie />} />
+      <Route path={'/Detail/:movieName/:movieId'} element={<DetailMovie />} />
       {arrayGenre.map((genre) => (
         <Route path={`/${genre[0]}`} element={<Genre />} key={genre} />
       ))}

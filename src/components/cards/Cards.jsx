@@ -13,7 +13,7 @@ function Cards(props) {
           <div className="ms-3 py-3 d-flex" key={movie.id}>
             <Col>
               <Card className="card">
-                <Link to={{ pathname: urlStr(movie.title), state: "movie" }}>
+                <Link to={{ pathname: urlStr(movie.title, movie.id), state: "movie" }}>
                   <Card.Img
                     variant="top"
                     src={urlBaseImg + movie.poster_path}
