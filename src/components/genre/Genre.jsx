@@ -2,7 +2,7 @@ import "./genre.css";
 import Main from "../cards/Cards";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchData } from "../../reducer/fetch";
+import { fetchData } from "../../reducer/fetchMovies";
 import { useLocation, useParams } from "react-router-dom";
 import Navegation from "../navegation/Navegation";
 
