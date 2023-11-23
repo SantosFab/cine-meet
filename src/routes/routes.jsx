@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Genre from "../components/genre/Genre";
 import DetailMovie from "../components/detailMovie/DetailMovie";
-import moviesUrl from "../utils/moviesUrl";
 
 const AppRouter = () => {
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
