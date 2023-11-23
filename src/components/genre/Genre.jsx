@@ -10,7 +10,7 @@ function Genre() {
   const dispatch = useDispatch();
   const { page } = useParams()
 
-  const movies = useSelector((state) => state.fetch.data?.results);
+  const movies = useSelector((state) => state.fetchMovies.data?.results);
   const urlBaseImg = useSelector((state) => state.genre.urlBaseImg);
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
 

@@ -2,8 +2,8 @@ import Pagination from "react-bootstrap/Pagination";
 import { useSelector } from "react-redux";
 
 function Navegation(props) {
-  const currentPage = useSelector((state) => state.fetch.data?.page);
-  const isFiveHundred = useSelector((state) => state.fetch.data?.total_pages);
+  const currentPage = useSelector((state) => state.fetchMovies.data?.page);
+  const isFiveHundred = useSelector((state) => state.fetchMovies.data?.total_pages);
   const totalPage = isFiveHundred < 500 ? isFiveHundred : 500;
   const urlLocation = props.urlLocation;
   const urlDefault = "Page";

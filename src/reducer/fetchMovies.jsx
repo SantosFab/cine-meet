@@ -5,7 +5,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const apiToken = process.env.REACT_APP_API_TOKEN;
 
 export const fetchData = createAsyncThunk(
-  "fetch/fetchData",
+  "fetchMovies/fetchData",
   async (params) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`,
@@ -28,7 +28,7 @@ export const fetchData = createAsyncThunk(
 );
 
 const fetchReducer = createSlice({
-  name: "fetch",
+  name: "fetchMovies",
   initialState: {
     data: null,
     error: null,
