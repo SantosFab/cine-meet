@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {  useSelector,  useDispatch } from "react-redux";
-import { setInputValue } from "../../reducer/search";
+import { setInputValue } from "../../reducer/API/input/inputSearch";
 
 function Header() {
   // const inputValue = useSelector((state) => state.input.value);

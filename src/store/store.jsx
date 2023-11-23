@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import inputReducer from '../reducer/search'
+import inputReducer from '../reducer/API/input/inputSearch'
 import fetchMoviesReducer from '../reducer/API/fetch/fetchMovies'
 import genreReducer from '../reducer/API/genreDefault'
 import fetchDetailReducer from '../reducer/API/fetch/fetchDetail'
