@@ -11,7 +11,7 @@ const AppRouter = () => {
     <Routes>
       <Route index element={<Genre />} />
       <Route path={`/Page`} element={<Genre />} />
-      <Route path={`/Page/:page`} element={<Search />} />
+      <Route path={`/Page/:page`} element={<Genre />} />
       <Route path={'/Detail/:movieName/:movieId'} element={<DetailMovie />} />
       <Route path={'/Search/:query'} element={<Search />} />
       <Route path={'/Search/:query/:page'} element={<Search />} />
