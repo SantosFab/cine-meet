@@ -13,6 +13,8 @@ function Genre() {
   const movies = useSelector((state) => state.fetchMovies.data?.results);
   const urlBaseImg = useSelector((state) => state.fetchMovies.urlBaseImg);
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
+  const currentPage = useSelector((state) => state.fetchMovies.data?.page);
+  const totalPage = Math.min(useSelector((state) => state.fetchMovies.data?.total_pages), 500)
 
   //pegar através da url o gênero atual ou se estar acessando home
   const urlLocation = decodeURIComponent(useLocation().pathname).split("/")[1];
@@ -29,7 +31,7 @@ function Genre() {
   return (
     <div className="Genre">
       <Cards movies={movies} urlBaseImg={urlBaseImg} />
-      <Navegation urlLocation={urlLocation} />
+      <Navegation urlLocation={urlLocation} currentPage={currentPage} totalPage={totalPage}/>
     </div>
   );
 }
