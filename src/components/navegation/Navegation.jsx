@@ -15,7 +15,7 @@ function Navigation(props) {
       items.push(
         <Pagination.Item
           key={page}
-          href={`/${urlLocation === "Page" ? "Page" : urlLocation}/${page}`}
+          href={`/${urlLocation}/${page}`}
           active={currentPage === page}
         >
           {page}
@@ -29,7 +29,7 @@ function Navigation(props) {
   return (
     <Pagination className="d-flex justify-content-center">
       <Pagination.First
-        href={`/${urlLocation === "Page" ? "Page" : urlLocation}`}
+        href={`/${urlLocation === "Page" ? "" : urlLocation}`}
       />
       {currentPage > 3 && totalPage > 5 && <Pagination.Ellipsis disabled />}
       {generatePaginationItems()}
@@ -37,7 +37,7 @@ function Navigation(props) {
         <Pagination.Ellipsis disabled />
       )}
       <Pagination.Last
-        href={`/${urlLocation === "Page" ? "Page" : urlLocation}/${totalPage}`}
+        href={`/${urlLocation}/${totalPage}`}
       />
     </Pagination>
   );
