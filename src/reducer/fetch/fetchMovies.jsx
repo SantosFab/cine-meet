@@ -6,8 +6,6 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const apiToken = process.env.REACT_APP_API_TOKEN;
 const urlBaseImg = process.env.REACT_APP_API_URL_IMG_500W;
 
-console.log(url);
-
 export const fetchMovies = createAsyncThunk(
   "fetchMovies/fetchData",
   async (params) => {
