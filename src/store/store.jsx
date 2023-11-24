@@ -1,14 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import inputReducer from '../reducer/API/input/inputSearch'
-import fetchMoviesReducer from '../reducer/API/fetch/fetchMovies'
-import genreReducer from '../reducer/API/genreDefault'
-import fetchDetailReducer from '../reducer/API/fetch/fetchDetail'
+import { configureStore } from "@reduxjs/toolkit";
+import genreReducer from "../reducer/genreDefault";
+import fetchMoviesReducer from "../reducer/fetch/fetchMovies";
+import fetchDetailReducer from "../reducer/fetch/fetchDetail";
+import fetchSearchReducer from "../reducer/fetch/fetchSearch";
 
 export default configureStore({
   reducer: {
-    input: inputReducer,
+    genre: genreReducer,
     fetchMovies: fetchMoviesReducer,
     fetchDetail: fetchDetailReducer,
-    genre: genreReducer,
+    fetchSearch: fetchSearchReducer,
   },
-})
+});

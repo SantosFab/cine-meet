@@ -3,7 +3,7 @@ import Cards from "../cards/Cards";
 import Navegation from "../navegation/Navegation";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchMovies } from "../../reducer/API/fetch/fetchMovies";
+import { fetchMovies } from "../../reducer/fetch/fetchMovies";
 import { useLocation, useParams } from "react-router-dom";
 
 function Genre() {

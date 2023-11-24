@@ -1,7 +1,7 @@
 import "./detailMovie.css";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { fetchDetail } from "../../reducer/API/fetch/fetchDetail";
+import { fetchDetail } from "../../reducer/fetch/fetchDetail";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Col, Row, Image } from "react-bootstrap";
 

@@ -1,8 +1,14 @@
-import unidecode from 'unidecode';
+import unidecode from "unidecode";
 
-const movieUrl = (str, id) => {
-  const normalizedStr = unidecode(str || '').toLowerCase();
-  return `/Detail/${normalizedStr.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}/${id}`;
+const movieDetailPath = (str, id) => {
+  const normalizedStr = unidecode(str || "").toLowerCase();
+  return `/Detail/${normalizedStr.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}/${id}`;
 };
 
-export default movieUrl;
+const movieSearchPath = (str) => {
+  const normalizedStr = unidecode(str || "").toLowerCase();
+  return `/Search/${normalizedStr.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`;
+};
+
+export { movieSearchPath, movieDetailPath };
+export default movieDetailPath;

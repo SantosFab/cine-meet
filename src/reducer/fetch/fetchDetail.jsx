@@ -2,22 +2,21 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const apiToken = process.env.REACT_APP_API_TOKEN;
+const url = process.env.REACT_APP_API_URL_FETCH_DETAIL;
+const urlBaseImg = process.env.REACT_APP_API_URL_IMG_ORGINAL;
 
 export const fetchDetail = createAsyncThunk(
   "fetchDetail/fetchData",
   async (id) => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}`,
-      {
-        params: {
-          language: "pt-BR",
-        },
-        headers: {
-          accept: "application/json",
-          Authorization: apiToken,
-        },
-      }
-    );
+    const response = await axios.get(url + id, {
+      params: {
+        language: "pt-BR",
+      },
+      headers: {
+        accept: "application/json",
+        Authorization: apiToken,
+      },
+    });
     return response.data;
   }
 );
@@ -27,7 +26,7 @@ const fetchReducer = createSlice({
   initialState: {
     data: null,
     error: null,
-    urlBaseImg: 'https://image.tmdb.org/t/p/original/',
+    urlBaseImg,
   },
   extraReducers: (builder) => {
     builder.addCase(fetchDetail.fulfilled, (state, action) => {

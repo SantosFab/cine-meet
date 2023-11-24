@@ -1,16 +1,9 @@
 import "./header.css";
-import {
-  Nav,
-  Navbar,
-  Form,
-  Row,
-  Col,
-  Button,
-  Container,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
-import {  useSelector,  useDispatch } from "react-redux";
-import { setInputValue } from "../../reducer/API/input/inputSearch";
+import { Nav, Navbar, Form, Row, Col, Container } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setInputValue } from "../../reducer/fetch/fetchSearch";
+import { movieSearchPath } from "../../utils/moviesUrl";
 
 function Header() {
   // const inputValue = useSelector((state) => state.input.value);
