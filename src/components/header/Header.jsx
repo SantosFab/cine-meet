@@ -6,9 +6,20 @@ import { setInputValue } from "../../reducer/fetch/fetchSearch";
 import { movieSearchPath } from "../../utils/moviesUrl";
 
 function Header() {
-  // const inputValue = useSelector((state) => state.input.value);
-  const arrayGenre = useSelector((state) => state.genre.arrayGenre)
+  const inputValue = useSelector((state) => state.fetchSearch.value);
+  const arrayGenre = useSelector((state) => state.genre.arrayGenre);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleSearch(event) {
+    if (inputValue === "") {
+      event.preventDefault();
+      return;
+    }
+    event.preventDefault();
+    const encodedValue = movieSearchPath(inputValue);
+    navigate(encodedValue);
+  }
 
   return (
     <Navbar expand="xl" className="Header" bg="dark" variant="dark">
@@ -35,12 +46,18 @@ function Header() {
                   type="text"
                   placeholder="Pesquisar"
                   onChange={(e) => dispatch(setInputValue(e.target.value))}
+                  value={inputValue}
                 />
               </Col>
               <Col xs="auto">
-                <Button type="submit" className="me-3 btn btn-light">
+                <button
+                  type="submit"
+                  className="me-3 btn btn-light"
+                  onClick={(e) => handleSearch(e)}
+                  aria-label="Search"
+                >
                   <i className="fa-solid fa-magnifying-glass"></i>
-                </Button>
+                </button>
               </Col>
             </Row>
           </Form>

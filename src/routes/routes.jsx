@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Genre from "../components/genre/Genre";
+import Search from "../components/search/Search";
 import DetailMovie from "../components/detailMovie/DetailMovie";
 
 const AppRouter = () => {
@@ -12,6 +13,7 @@ const AppRouter = () => {
       <Route path={`/Page`} element={<Genre />} />
       <Route path={`/Page/:page`} element={<Genre />} />
       <Route path={'/Detail/:movieName/:movieId'} element={<DetailMovie />} />
+      <Route path={'/Search/:query'} element={<Search />} />
       {arrayGenre.map((genre) => (
         <Route path={`/${genre[0]}`} element={<Genre />} key={genre} />
       ))}
