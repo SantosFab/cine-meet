@@ -19,3 +19,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.DetailMovie .imageDefault{
+    height: 600px;
+    width: 403px;
+}
+
+.DetailMovie .authorsLicense{
+    text-align: center;
+}

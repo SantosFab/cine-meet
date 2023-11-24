@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { fetchDetail } from "../../reducer/fetch/fetchDetail";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Col, Row, Image } from "react-bootstrap";
+import imageDefault from "../../assets/images/imageDefault.jpg";
 
 function DetailMovie() {
   const { movieId } = useParams();
@@ -22,7 +23,7 @@ function DetailMovie() {
   }
 
   function hasData(str, data) {
-    return data !== "" ? (
+    return data !== "" && data?.length !== 0 ? (
       <>
         <strong>{str}:</strong> {data}
       </>
@@ -33,13 +34,40 @@ function DetailMovie() {
 
   return (
     <div className="DetailMovie">
-      <Container >
-      <Col>
-        <Row className="mx-3 py-3">
-          <Col xs="auto">
-            <Image src={`${urlBaseImg}${movie.poster_path}`} thumbnail />
-          </Col>
-          <Col className="description">
+      <Container>
+        <Col>
+          <Row className="mx-3 py-3">
+            <Col xs="auto">
+              <Image
+                className={movie.poster_path === null ? "imageDefault" : ""}
+                src={
+                  movie.poster_path !== null
+                    ? urlBaseImg + movie.poster_path
+                    : imageDefault
+                }
+                thumbnail
+                alt={
+                  movie.poster_path !== null
+                    ? `Poster do ${movie.title}`
+                    : "Imagem de Alexa do Pixabay"
+                }
+              />
+              {movie.poster_path !== null ? (
+                <></>
+              ) : (
+                <div className="authorsLicense">
+                  Image by{" "}
+                  <a href="https://pixabay.com/users/alexas_fotos-686414/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=821993">
+                    Alexa
+                  </a>{" "}
+                  from{" "}
+                  <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=821993">
+                    Pixabay
+                  </a>
+                </div>
+              )}
+            </Col>
+            <Col className="description">
               <Col>
                 <strong>Descrição</strong>
               </Col>
@@ -57,11 +85,11 @@ function DetailMovie() {
                   listItems(movie.production_countries)
                 )}
               </Col>
-            <Col className="pt-5">{hasData("Sinopse", movie.overview)}</Col>
-          </Col>
-        </Row>
-      </Col>
-    </Container>
+              <Col className="pt-5">{hasData("Sinopse", movie.overview)}</Col>
+            </Col>
+          </Row>
+        </Col>
+      </Container>
     </div>
   );
 }
