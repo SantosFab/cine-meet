@@ -13,6 +13,7 @@ function Search() {
   const urlBaseImg = useSelector((state) => state.fetchSearch.urlBaseImg);
   const currentPage = useSelector((state)=>state.fetchSearch.data?.page)
   const totalPage = useSelector((state)=>state.fetchSearch.data?.total_pages)
+  const error = useSelector((state)=>state.fetchSearch.error)
   const arrayUrlLocation = decodeURIComponent(useLocation().pathname).split("/");
   const urlLocation = `${arrayUrlLocation[1]}/${arrayUrlLocation[2]}`;
   const dispatch = useDispatch();
@@ -22,11 +23,11 @@ function Search() {
   }, [dispatch, query, page]);
   return hasSearch?.length !== 0 ? (
     <div className='Search'>
-      <Cards movies={hasSearch} urlBaseImg={urlBaseImg}></Cards>
+      <Cards movies={hasSearch} urlBaseImg={urlBaseImg} error={error}></Cards>
       <Navigation urlLocation={urlLocation} currentPage={currentPage} totalPage={totalPage} ></Navigation>
     </div>
   ) : (
-    <div className='searchVoid d-flex justify-content-center align-items-center fs-2'>Não foi encontrado nada com: {query}</div>
+    <div className='searchVoid d-flex justify-content-center align-items-center fs-2'>Nada foi encontrado com: {query}</div>
   );
 }
 

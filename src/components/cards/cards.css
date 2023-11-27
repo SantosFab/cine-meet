@@ -1,6 +1,6 @@
 .Cards {
   height: 100%;
-  min-height: 95vh;
+  min-height: calc(100vh - 56px);
 }
 
 .Cards .card {
@@ -51,7 +51,7 @@
   overflow: hidden;
 }
 
-.Cards .descriptionVoid{
+.Cards .descriptionVoid {
   font-size: 1.2em;
   font-weight: 700;
 }
@@ -60,8 +60,8 @@
   height: 339px;
 }
 
-.Cards .authorsLicense{
-  background-color: #FFEA00;
+.Cards .authorsLicense {
+  background-color: #ffea00;
   text-align: center;
   font-size: 12px;
 }

@@ -11,6 +11,7 @@ function Genre() {
   const { page } = useParams();
 
   const movies = useSelector((state) => state.fetchData.data?.results);
+  const error = useSelector((state) => state.fetchData.error);
   const urlBaseImg = useSelector((state) => state.fetchData.urlBaseImg);
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
   const currentPage = useSelector((state) => state.fetchData.data?.page);
@@ -34,12 +35,21 @@ function Genre() {
 
   return (
     <div className="Genre">
-      <Cards movies={movies} urlBaseImg={urlBaseImg} urlLocation={urlLocation} />
-      <Navegation
+      <Cards
+        movies={movies}
+        urlBaseImg={urlBaseImg}
         urlLocation={urlLocation}
-        currentPage={currentPage}
-        totalPage={totalPage}
+        error={error}
       />
+      {error === null ? (
+        <Navegation
+          urlLocation={urlLocation}
+          currentPage={currentPage}
+          totalPage={totalPage}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

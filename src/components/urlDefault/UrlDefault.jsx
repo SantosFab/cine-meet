@@ -11,14 +11,9 @@ function UrlDefault() {
   const hasErrors = errors.some((error) => error !== null);
 
   return (
-    <div className="UrlDefault d-flex justify-content-center align-items-center fs-2">
-      Página não encontrada
-      {hasErrors && (
-        <>
-          <br />
-          Error: {errors.join(" ")}
-        </>
-      )}
+    <div className="UrlDefault fs-2">
+      <div>Página não encontrada</div>
+      {hasErrors && <div>Error: {errors.join(" ")}</div>}
     </div>
   );
 }
