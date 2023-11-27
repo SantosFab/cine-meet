@@ -1,3 +1,4 @@
+import "./navegation.css";
 import React from "react";
 import Pagination from "react-bootstrap/Pagination";
 
@@ -5,7 +6,7 @@ function Navigation(props) {
   const currentPage = props.currentPage;
   const totalPage = props.totalPage;
   const urlLocation = props.urlLocation || "Page";
-  
+
   function generatePaginationItems() {
     const items = [];
     const startPage = Math.max(1, currentPage - 2);
@@ -36,9 +37,7 @@ function Navigation(props) {
       {currentPage < totalPage - 2 && totalPage > 5 && (
         <Pagination.Ellipsis disabled />
       )}
-      <Pagination.Last
-        href={`/${urlLocation}/${totalPage}`}
-      />
+      <Pagination.Last href={`/${urlLocation}/${totalPage}`} />
     </Pagination>
   );
 }

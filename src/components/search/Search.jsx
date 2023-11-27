@@ -1,3 +1,4 @@
+import './search.css'
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSearch } from "../../reducer/fetch/fetchSearch";
@@ -20,12 +21,12 @@ function Search() {
     dispatch(fetchSearch({ query: query , page}));
   }, [dispatch, query, page]);
   return hasSearch?.length !== 0 ? (
-    <>
+    <div className='Search'>
       <Cards movies={hasSearch} urlBaseImg={urlBaseImg}></Cards>
       <Navigation urlLocation={urlLocation} currentPage={currentPage} totalPage={totalPage} ></Navigation>
-    </>
+    </div>
   ) : (
-    <div>Conteúdo não encontrado</div>
+    <div className='searchVoid d-flex justify-content-center align-items-center fs-2'>Não foi encontrado nada com: {query}</div>
   );
 }
 
