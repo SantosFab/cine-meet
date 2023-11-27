@@ -1,8 +1,8 @@
 import unidecode from "unidecode";
 
-const movieDetailPath = (str, id) => {
+const movieDetailPath = (type, str, id) => {
   const normalizedStr = unidecode(str || "").toLowerCase();
-  return `/Detail/${normalizedStr.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}/${id}`;
+  return `/Detail/${type}/${normalizedStr.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}/${id}`;
 };
 
 const movieSearchPath = (str) => {

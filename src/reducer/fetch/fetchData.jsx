@@ -33,13 +33,8 @@ const fetchReducer = createSlice({
     data: null,
     error: null,
     urlBaseImg,
-    isSerie: false,
   },
-  reducers: {
-    setIsSerie: (state, action) => {
-      state.isSerie = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
       state.data = action.payload;
@@ -52,5 +47,4 @@ const fetchReducer = createSlice({
   },
 });
 
-export const { setIsSerie } = fetchReducer.actions;
 export default fetchReducer.reducer;

@@ -3,7 +3,7 @@ import Cards from "../cards/Cards";
 import Navegation from "../navegation/Navegation";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchData , setIsSerie } from "../../reducer/fetch/fetchData";
+import { fetchData } from "../../reducer/fetch/fetchData";
 import { useLocation, useParams } from "react-router-dom";
 
 function Genre() {
@@ -34,7 +34,7 @@ function Genre() {
 
   return (
     <div className="Genre">
-      <Cards movies={movies} urlBaseImg={urlBaseImg} />
+      <Cards movies={movies} urlBaseImg={urlBaseImg} urlLocation={urlLocation} />
       <Navegation
         urlLocation={urlLocation}
         currentPage={currentPage}
