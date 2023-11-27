@@ -16,8 +16,7 @@ function Cards(props) {
               <Card className="card">
                 <Link
                   to={{
-                    pathname: urlStr(movie.title, movie.id),
-                    state: "movie",
+                    pathname: urlStr(movie.title ?? movie.name, movie.id),
                   }}
                 >
                   <Card.Img
@@ -50,7 +49,7 @@ function Cards(props) {
                   <></>
                 )}
                 <Card.Body>
-                  <Card.Title>{movie.title}</Card.Title>
+                  <Card.Title>{movie.title ?? movie.name} </Card.Title>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                   <ListGroup.Item

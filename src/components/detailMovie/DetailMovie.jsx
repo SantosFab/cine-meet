@@ -7,14 +7,14 @@ import { Container, Col, Row, Image } from "react-bootstrap";
 import imageDefault from "../../assets/images/imageDefault.jpg";
 
 function DetailMovie() {
-  const { movieId } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
   const movie = useSelector((state) => state.fetchDetail.data) || {};
   const urlBaseImg = useSelector((state) => state.fetchDetail.urlBaseImg);
 
   useEffect(() => {
-    dispatch(fetchDetail(movieId));
-  }, [dispatch, movieId]);
+    dispatch(fetchDetail({id, }));
+  }, [dispatch, id]);
 
   function listItems(array) {
     return array?.map((companie, index) => {
@@ -23,7 +23,7 @@ function DetailMovie() {
   }
 
   function hasData(str, data) {
-    return data !== "" && data?.length !== 0 ? (
+    return data !== "" && data !== undefined && data?.length !== 0 ? (
       <>
         <strong>{str}:</strong> {data}
       </>

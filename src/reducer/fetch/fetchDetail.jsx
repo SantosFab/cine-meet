@@ -7,8 +7,8 @@ const urlBaseImg = process.env.REACT_APP_API_URL_IMG_ORGINAL;
 
 export const fetchDetail = createAsyncThunk(
   "fetchDetail/fetchData",
-  async (id) => {
-    const response = await axios.get(url + id, {
+  async (params) => {
+    const response = await axios.get(url + params.id, {
       params: {
         language: "pt-BR",
       },

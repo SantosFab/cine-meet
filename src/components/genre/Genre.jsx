@@ -3,18 +3,21 @@ import Cards from "../cards/Cards";
 import Navegation from "../navegation/Navegation";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchMovies } from "../../reducer/fetch/fetchMovies";
+import { fetchData , setIsSerie } from "../../reducer/fetch/fetchData";
 import { useLocation, useParams } from "react-router-dom";
 
 function Genre() {
   const dispatch = useDispatch();
   const { page } = useParams();
 
-  const movies = useSelector((state) => state.fetchMovies.data?.results);
-  const urlBaseImg = useSelector((state) => state.fetchMovies.urlBaseImg);
+  const movies = useSelector((state) => state.fetchData.data?.results);
+  const urlBaseImg = useSelector((state) => state.fetchData.urlBaseImg);
   const arrayGenre = useSelector((state) => state.genre.arrayGenre);
-  const currentPage = useSelector((state) => state.fetchMovies.data?.page);
-  const totalPage = Math.min(useSelector((state) => state.fetchMovies.data?.total_pages), 500)
+  const currentPage = useSelector((state) => state.fetchData.data?.page);
+  const totalPage = Math.min(
+    useSelector((state) => state.fetchData.data?.total_pages),
+    500
+  );
 
   //pegar através da url o gênero atual ou se estar acessando home
   const urlLocation = decodeURIComponent(useLocation().pathname).split("/")[1];
@@ -22,16 +25,21 @@ function Genre() {
   useEffect(() => {
     const isGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
     if (isGenre !== undefined && isGenre[0] !== "Page") {
-      dispatch(fetchMovies({ genre: isGenre[1], page: page }));
+      const isSeries = isGenre[0] === arrayGenre[arrayGenre.length - 1][0];
+      dispatch(fetchData({ genre: isGenre[1], page: page, isSeries }));
     } else {
-      dispatch(fetchMovies({ page: page }));
+      dispatch(fetchData({ page: page }));
     }
   }, [urlLocation, arrayGenre, dispatch, page]);
 
   return (
     <div className="Genre">
       <Cards movies={movies} urlBaseImg={urlBaseImg} />
-      <Navegation urlLocation={urlLocation} currentPage={currentPage} totalPage={totalPage}/>
+      <Navegation
+        urlLocation={urlLocation}
+        currentPage={currentPage}
+        totalPage={totalPage}
+      />
     </div>
   );
 }
