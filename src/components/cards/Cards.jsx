@@ -23,7 +23,7 @@ function Cards(props) {
                     variant="top"
                     className={movie.poster_path === null ? "imageDefault" : ""}
                     src={
-                      movie.poster_path !== null
+                      movie.poster_path !== null && movie.poster_path !== undefined
                         ? urlBaseImg + movie.poster_path
                         : imageDefault
                     }
@@ -53,9 +53,9 @@ function Cards(props) {
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                   <ListGroup.Item
-                    className={movie.overview !== "" ? "" : "descriptionVoid"}
+                    className={movie.overview !== "" && movie.overview !== undefined ? "" : "descriptionVoid"}
                   >
-                    {movie.overview !== ""
+                    {movie.overview !== "" && movie.overview !== undefined
                       ? movie.overview
                       : "Não há descrição"}
                   </ListGroup.Item>

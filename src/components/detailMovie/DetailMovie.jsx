@@ -41,7 +41,7 @@ function DetailMovie() {
               <Image
                 className={movie.poster_path === null ? "imageDefault" : ""}
                 src={
-                  movie.poster_path !== null
+                  movie.poster_path !== null && movie.poster_path !== undefined
                     ? urlBaseImg + movie.poster_path
                     : imageDefault
                 }
