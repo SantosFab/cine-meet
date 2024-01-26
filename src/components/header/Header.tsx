@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setInputValue } from "../../reducer/fetch/fetchSearch";
 import { FetchSearchState } from "../../reducer/fetch/fetchSearch";
+import { FunctionComponent } from "react";
 
-function Header() {
-  const inputValue:string = useSelector((state: FetchSearchState) => state.search);
+interface HeaderProps {}
+
+const Header: FunctionComponent<HeaderProps> = () => {
+  const inputValue: string = useSelector(
+    (state: FetchSearchState) => state.search
+  );
   const dispatch = useDispatch();
-  const arrayGenre:string[][] = [
+  const arrayGenre: string[][] = [
     ["Ação", "28"],
     ["Aventura", "12"],
     ["Animação", "16"],
@@ -34,7 +39,7 @@ function Header() {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          {arrayGenre.map((genre) => (
+            {arrayGenre.map((genre) => (
               <Link to={`/${genre[0]}`} key={genre[0]}>
                 {genre[0]}
               </Link>
@@ -65,6 +70,6 @@ function Header() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Header;
