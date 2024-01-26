@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import Genre from "./route/genre/Genre";
+import ShowMovies from "./route/showMovies/ShowMovies";
 
 const AppRouter = () => {
   return (
     <Routes>
-        <Route index element={<Genre/>}/>
+        <Route index element={<ShowMovies/>}/>
     </Routes>
   );
 };
