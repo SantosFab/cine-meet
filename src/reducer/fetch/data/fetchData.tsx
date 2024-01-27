@@ -1,39 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  apiKey,
+  apiToken,
+  urlBaseImg,
+  urlMovies,
+  urlSeries,
+} from "../../../utils/env/env";
+import { DataParams, FetchDataState, PageData } from "./interface";
 import axios from "axios";
-
-const urlMovies: string =
-  process.env.REACT_APP_API_URL_FETCH_MOVIES ?? "default_url";
-const urlSeries: string =
-  process.env.REACT_APP_API_URL_FETCH_SERIES ?? "default_url";
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiToken = process.env.REACT_APP_API_TOKEN;
-const urlBaseImg = process.env.REACT_APP_API_URL_IMG_500W ?? "default_url";
-
-interface PageData {
-  page: number;
-  results: Array<{
-    id: number;
-    title: string;
-    media_type: string;
-    name: string;
-    poster_path: string;
-    overview: string;
-  }>;
-  total_pages: number;
-  total_results: number;
-}
-
-interface DataParams {
-  isSeries?: boolean;
-  page?: string;
-  genre?: string;
-}
-
-export interface FetchDataState {
-  data: PageData | null;
-  error: string | undefined;
-  urlBaseImg: string;
-}
 
 const initialState: FetchDataState = {
   data: null,

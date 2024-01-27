@@ -2,8 +2,8 @@ import "./header.css";
 import { Nav, Navbar, Form, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setInputValue } from "../../reducer/fetch/fetchSearch";
-import { FetchSearchState } from "../../reducer/fetch/fetchSearch";
+import { setInputValue } from "../../reducer/fetch/search/fetchSearch";
+import { FetchSearchState } from "../../reducer/fetch/search/interface";
 import { FunctionComponent } from "react";
 
 interface HeaderProps {}

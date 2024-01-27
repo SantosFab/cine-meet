@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FetchDataState, fetchData } from "../../../reducer/fetch/fetchData";
+import { fetchData } from "../../../reducer/fetch/data/fetchData";
+import { FetchDataState } from "../../../reducer/fetch/data/interface";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { Card, Col, Container, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
