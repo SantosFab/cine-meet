@@ -4,7 +4,7 @@ import { fetchData } from "../../../reducer/fetch/data/fetchData";
 import { FetchDataState } from "../../../reducer/fetch/data/interface";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { Card, Col, Container, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import "./showMovies.css";
 
 interface GenreProps {}
@@ -18,6 +18,8 @@ const Genre: FunctionComponent<GenreProps> = () => {
     (state: { fetchData: FetchDataState }) => state.fetchData.urlBaseImg
   );
 
+  let { page } = useParams();
+  console.log(page);
   useEffect(() => {
     dispatch(fetchData({}));
     return () => {};
