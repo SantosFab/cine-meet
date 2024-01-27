@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { apiToken, urlBaseImg, urlSearch } from "../../../utils/env/env";
 import { FetchSearchState, SearchParams } from "./interface";
 import axios from "axios";
+import { PageData } from "../commonTypes.tsx/apiData";
 
 const initialState: FetchSearchState = {
   search: "",
@@ -10,14 +11,14 @@ const initialState: FetchSearchState = {
   urlBaseImg,
 };
 
-export const fetchSearch = createAsyncThunk(
+export const fetchSearch = createAsyncThunk<PageData, SearchParams>(
   "fetchSearch",
-  async (params: SearchParams) => {
+  async ({ page, query }: SearchParams) => {
     const response = await axios.get(urlSearch, {
       params: {
-        query: params?.query ?? "",
+        query: query ?? "",
         language: "pt-br",
-        page: params?.page ?? "1",
+        page: page ?? "1",
       },
       headers: {
         accept: "application/json",

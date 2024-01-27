@@ -1,3 +1,5 @@
+import { PageData } from "../commonTypes.tsx/apiData";
+
 export interface SearchParams {
   query?: string;
   page?: string;
@@ -5,7 +7,7 @@ export interface SearchParams {
 
 export interface FetchSearchState {
   search: string;
-  data: string | null;
+  data: PageData | null;
   error: string | undefined;
   urlBaseImg: string | undefined;
 }

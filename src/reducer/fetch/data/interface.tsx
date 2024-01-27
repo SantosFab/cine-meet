@@ -1,16 +1,4 @@
-export interface PageData {
-  page: number;
-  results: Array<{
-    id: number;
-    title: string;
-    media_type: string;
-    name: string;
-    poster_path: string;
-    overview: string;
-  }>;
-  total_pages: number;
-  total_results: number;
-}
+import { PageData } from "../commonTypes.tsx/apiData";
 
 export interface DataParams {
   isSeries?: boolean;

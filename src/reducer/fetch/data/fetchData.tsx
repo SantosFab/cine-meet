@@ -6,7 +6,8 @@ import {
   urlMovies,
   urlSeries,
 } from "../../../utils/env/env";
-import { DataParams, FetchDataState, PageData } from "./interface";
+import { DataParams, FetchDataState } from "./interface";
+import { PageData } from "../commonTypes.tsx/apiData";
 import axios from "axios";
 
 const initialState: FetchDataState = {
