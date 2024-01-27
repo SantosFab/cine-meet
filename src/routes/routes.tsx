@@ -5,17 +5,14 @@ import { arrayGenre } from "../utils/genre/arrayGenre";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<ShowMovies />}>
-        <Route path=":page" element={<ShowMovies />} />
-      </Route>
+      <Route index element={<ShowMovies />} />
+      <Route path="/:page" element={<ShowMovies />} />
       {arrayGenre.map((genre) => (
-        <Route path={`/${genre[0]}`} element={<ShowMovies />} key={genre[1]}>
-          <Route
-            path={`/${genre[0]}/:page`}
-            element={<ShowMovies />}
-            key={genre[1]}
-          />
-        </Route>
+        <Route
+          path={`/${genre[0]}/:page`}
+          element={<ShowMovies />}
+          key={genre[0]}
+        />
       ))}
     </Routes>
   );
