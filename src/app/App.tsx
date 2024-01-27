@@ -1,5 +1,5 @@
 import Header from "../components/header/Header";
-import Routes from "../routes/route/showMovies/ShowMovies";
+import Routes from "../routes/routes";
 
 function App() {
   return (
