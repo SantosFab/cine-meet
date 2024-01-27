@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setInputValue } from "../../reducer/fetch/search/fetchSearch";
 import { FetchSearchState } from "../../reducer/fetch/search/interface";
+import { arrayGenre } from "../../utils/genre/arrayGenre";
 import { FunctionComponent } from "react";
 
 interface HeaderProps {}
@@ -13,19 +14,6 @@ const Header: FunctionComponent<HeaderProps> = () => {
     (state: FetchSearchState) => state.search
   );
   const dispatch = useDispatch();
-  const arrayGenre: string[][] = [
-    ["Ação", "28"],
-    ["Aventura", "12"],
-    ["Animação", "16"],
-    ["Comédia", "35"],
-    ["Documentário", "99"],
-    ["Drama", "18"],
-    ["Terror", "27"],
-    ["Romance", "10749"],
-    ["Ficção", "878"],
-    ["Guerra", "10752"],
-    ["Séries"],
-  ];
 
   return (
     <Navbar expand="xl" className="header" bg="dark" variant="dark">
