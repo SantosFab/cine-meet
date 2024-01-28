@@ -1,14 +1,13 @@
 import { FunctionComponent, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../../../reducer/fetch/data/fetchData";
-import { FetchDataState } from "../../../reducer/fetch/data/interface";
+import { fetchData, selectState } from "../../../reducer/fetch/data/fetchData";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { Card, Col, Container, ListGroup } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import "./showMovies.css";
 import Navegation from "../../../components/navegation/Navegation";
-import { PageData } from "../../../reducer/fetch/commonTypes.tsx/apiData";
 import { arrayGenre } from "../../../utils/genre/arrayGenre";
+import imageDefault from "../../../assets/imageDefault.jpg";
 
 interface GenreProps {}
 
@@ -17,18 +16,9 @@ const Genre: FunctionComponent<GenreProps> = () => {
 
   const urlLocation = decodeURIComponent(useLocation().pathname.split("/")[1]);
 
-  const movies = useSelector(
-    (state: { fetchData: FetchDataState }) => state.fetchData.data?.results
-  );
-
-  const { total_pages } = useSelector(
-    (state: { fetchData: FetchDataState }) =>
-      state.fetchData.data || ({} as PageData)
-  );
-
-  const urlBaseImg = useSelector(
-    (state: { fetchData: FetchDataState }) => state.fetchData.urlBaseImg
-  );
+  const selectDataState = useSelector(selectState);
+  const { total_pages, results } = selectDataState.data || { total_pages: 1, results: [] };
+  const urlBaseImg = selectDataState.urlBaseImg;
 
   let { page } = useParams();
 
@@ -38,12 +28,12 @@ const Genre: FunctionComponent<GenreProps> = () => {
 
     dispatch(fetchData({ genre: genre, page }));
     return () => {};
-  }, [dispatch, urlLocation]);
+  }, [dispatch, page, urlLocation]);
 
   return (
     <div className="Cards">
       <Container className="d-flex flex-wrap justify-content-center">
-        {movies?.map((movie) =>
+        {results?.map((movie) =>
           movie.media_type === "person" ? (
             <></>
           ) : (
@@ -56,7 +46,11 @@ const Genre: FunctionComponent<GenreProps> = () => {
                       className={
                         movie.poster_path === null ? "imageDefault" : ""
                       }
-                      src={urlBaseImg + movie.poster_path}
+                      src={
+                        movie.poster_path !== null
+                          ? urlBaseImg + movie.poster_path
+                          : imageDefault
+                      }
                       alt={
                         movie.poster_path !== null
                           ? `Poster do ${movie.title}`
@@ -76,20 +70,16 @@ const Genre: FunctionComponent<GenreProps> = () => {
                       </a>
                     </div>
                   ) : (
-                    <div></div>
+                    <></>
                   )}
                   <Card.Body>
                     <Card.Title>{movie.title ?? movie.name} </Card.Title>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item
-                      className={
-                        movie.overview !== "" && movie.overview !== undefined
-                          ? ""
-                          : "descriptionVoid"
-                      }
+                      className={movie.overview !== "" ? "" : "descriptionVoid"}
                     >
-                      {movie.overview !== "" && movie.overview !== undefined
+                      {movie.overview !== ""
                         ? movie.overview
                         : "Não há descrição"}
                     </ListGroup.Item>
