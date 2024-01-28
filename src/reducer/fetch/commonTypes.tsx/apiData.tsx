@@ -3,7 +3,7 @@ interface ResultItem {
   title: string;
   media_type: string;
   name: string;
-  poster_path: string;
+  poster_path: string | null;
   overview: string;
 }
 
