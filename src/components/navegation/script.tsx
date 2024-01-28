@@ -30,11 +30,18 @@ export const generatePaginationItems = ({
   return items;
 };
 
-export const isNumber = ({ isNumber }: { isNumber: string | undefined }): number => {
-  const number: number = parseInt(isNumber ?? 'NotNumber');
+export const isNumber = ({
+  isNumber,
+}: {
+  isNumber: string | undefined;
+}): number => {
+  const number: number = parseInt(isNumber ?? "NotNumber");
   if (isNaN(number)) {
     return 1;
   } else {
     return number;
   }
 };
+
+export const isLessThanFiveHundred = ({ number }: { number: number }): number =>
+  Math.min(number, 500);
