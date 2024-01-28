@@ -6,24 +6,38 @@ import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { Card, Col, Container, ListGroup } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import "./showMovies.css";
+import Navegation from "../../../components/navegation/Navegation";
+import { PageData } from "../../../reducer/fetch/commonTypes.tsx/apiData";
+import { arrayGenre } from "../../../utils/genre/arrayGenre";
 
 interface GenreProps {}
 
 const Genre: FunctionComponent<GenreProps> = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
+
+  const urlLocation = decodeURIComponent(useLocation().pathname.split("/")[1]);
+
   const movies = useSelector(
     (state: { fetchData: FetchDataState }) => state.fetchData.data?.results
   );
+
+  const { total_pages } = useSelector(
+    (state: { fetchData: FetchDataState }) =>
+      state.fetchData.data || ({} as PageData)
+  );
+
   const urlBaseImg = useSelector(
     (state: { fetchData: FetchDataState }) => state.fetchData.urlBaseImg
   );
 
   let { page } = useParams();
-  console.log(page);
+
   useEffect(() => {
-    dispatch(fetchData({}));
+    const foundGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
+    const genre: string = foundGenre?.[1] ?? "";
+    dispatch(fetchData({ genre: genre[1], page }));
     return () => {};
-  }, [dispatch]);
+  }, [dispatch, urlLocation]);
 
   return (
     <div className="Cards">
@@ -85,7 +99,11 @@ const Genre: FunctionComponent<GenreProps> = () => {
           )
         )}
       </Container>
-      ;
+      <Navegation
+        currentPageString={page}
+        lastPage={total_pages}
+        urlLocation={urlLocation}
+      />
     </div>
   );
 };
