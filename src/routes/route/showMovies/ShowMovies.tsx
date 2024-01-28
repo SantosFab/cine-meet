@@ -35,7 +35,8 @@ const Genre: FunctionComponent<GenreProps> = () => {
   useEffect(() => {
     const foundGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
     const genre: string = foundGenre?.[1] ?? "";
-    dispatch(fetchData({ genre: genre[1], page }));
+
+    dispatch(fetchData({ genre: genre, page }));
     return () => {};
   }, [dispatch, urlLocation]);
 
