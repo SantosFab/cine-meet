@@ -1,34 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  apiKey,
-  apiToken,
-  urlBaseImg,
-  urlMovies,
-  urlSeries,
-} from "../../../utils/env/env";
-import { DataParams, FetchDataState } from "./interface";
-import { PageData } from "../commonTypes.tsx/apiData";
+import { apiKey, apiToken, urlMovies, urlSeries } from "../../../utils/env/env";
+import { DataParams } from "./interface";
+import { PageData, initialState, FetchState } from "../commonTypes/interface";
 import axios from "axios";
-
-const initialState: FetchDataState = {
-  data: null,
-  error: undefined,
-  urlBaseImg,
-};
+import { Accept, language } from "../../../utils/API/variable";
 
 export const fetchData = createAsyncThunk<PageData, DataParams>(
   "fetchdata",
   async ({ isSeries = false, page, genre }) => {
     const response = await axios.get(isSeries ? urlSeries : urlMovies, {
       params: {
-        language: "pt-BR",
+        language,
         page: page ?? "1",
         sort_by: "popularity.desc",
         with_genres: genre ?? "",
         api_key: apiKey,
       },
       headers: {
-        Accept: "application/json",
+        Accept,
         Authorization: apiToken,
       },
     });
@@ -52,6 +41,8 @@ const fetchReducer = createSlice({
   },
 });
 
-export const selectState = (state: { fetchData: FetchDataState }) => state.fetchData;
-export const selectError = (state: { fetchData: FetchDataState }) => state.fetchData.error;
+export const selectState = (state: { fetchData: FetchState }) =>
+  state.fetchData;
+export const selectError = (state: { fetchData: FetchState }) =>
+  state.fetchData.error;
 export default fetchReducer.reducer;

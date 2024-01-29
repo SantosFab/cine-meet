@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { apiToken, urlBaseImg, urlSearch } from "../../../utils/env/env";
 import { FetchSearchState, SearchParams } from "./interface";
 import axios from "axios";
-import { PageData } from "../commonTypes.tsx/apiData";
+import { PageData } from "../commonTypes/interface";
 
 const initialState: FetchSearchState = {
   search: "",
