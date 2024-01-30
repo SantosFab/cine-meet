@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import fetchSearchReducer from "../fetch/search/fetchSearch";
-import fetchDataReducer from "../fetch/data/fetchData";
+import fetchDataReducer from "../fetch/mediasByGenre/fetchmediaByGenre";
 import fetchDetailReducer from "../fetch/detail/fetchDetail";
 
 export default configureStore({

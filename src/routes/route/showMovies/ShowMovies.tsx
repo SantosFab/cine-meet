@@ -1,14 +1,15 @@
 import { FunctionComponent, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, selectState } from "../../../reducer/fetch/data/fetchData";
+import {
+  fetchMediaByGenre,
+  selectState,
+} from "../../../reducer/fetch/mediasByGenre/fetchmediaByGenre";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
-import { Card, Col, Container, ListGroup } from "react-bootstrap";
-import { Link, useLocation, useParams } from "react-router-dom";
-import "./showMovies.css";
+import { useLocation, useParams } from "react-router-dom";
 import Navegation from "../../../components/navegation/Navegation";
 import { arrayGenre } from "../../../utils/genre/arrayGenre";
 import Cards from "../../../components/cards/Cards";
-
+import "./showMovies.css";
 
 interface GenreProps {}
 
@@ -30,10 +31,10 @@ const Genre: FunctionComponent<GenreProps> = () => {
     const foundGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
     const genre: string | undefined = foundGenre?.[1];
 
-    if (genre) {
-      dispatch(fetchData({ genre: genre, page }));
+    if (urlLocation === "Séries") {
+      dispatch(fetchMediaByGenre({ isSeries: true, page }));
     } else {
-      dispatch(fetchData({ isSeries: true, page }));
+      dispatch(fetchMediaByGenre({ genre: genre, page }));
     }
 
     return () => {};
@@ -41,7 +42,7 @@ const Genre: FunctionComponent<GenreProps> = () => {
 
   return (
     <div className="Cards">
-      <Cards results={results} urlBaseImg={urlBaseImg}/>
+      <Cards results={results} urlBaseImg={urlBaseImg} />
       <Navegation
         currentPageString={page}
         lastPage={total_pages}

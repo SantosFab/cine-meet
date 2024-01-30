@@ -1,11 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { apiKey, apiToken, urlMovies, urlSeries } from "../../../utils/env/env";
-import { DataParams } from "./interface";
-import { PageData, initialState, FetchState } from "../commonTypes/interface";
+import {
+  apiKey,
+  apiToken,
+  urlBaseImg,
+  urlMovies,
+  urlSeries,
+} from "../../../utils/env/env";
+
 import axios from "axios";
 import { Accept, language } from "../../../utils/API/variable";
+import {
+  MediaByGenreData,
+  MediaByGenreParams,
+  MediaByGenreState,
+} from "../mediasByGenre/interface";
 
-export const fetchData = createAsyncThunk<PageData, DataParams>(
+const initialState: MediaByGenreState = {
+  data: null,
+  error: undefined,
+  search: "",
+  urlBaseImg,
+};
+
+export const fetchData = createAsyncThunk<MediaByGenreData, MediaByGenreParams>(
   "fetchdata",
   async ({ isSeries = false, page, genre }) => {
     const response = await axios.get(isSeries ? urlSeries : urlMovies, {
@@ -41,8 +58,8 @@ const fetchReducer = createSlice({
   },
 });
 
-export const selectState = (state: { fetchData: FetchState }) =>
+export const selectState = (state: { fetchData: MediaByGenreState }) =>
   state.fetchData;
-export const selectError = (state: { fetchData: FetchState }) =>
+export const selectError = (state: { fetchData: MediaByGenreState }) =>
   state.fetchData.error;
 export default fetchReducer.reducer;

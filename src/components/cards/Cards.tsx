@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import { Card, Col, Container, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ResultItem } from "../../reducer/fetch/commonTypes/interface";
 import imageDefault from "../../assets/imageDefault.jpg";
+import { ResultItem } from "../../reducer/fetch/mediasByGenre/interface";
 
 interface CardsProps {
   results: ResultItem[] | never[];
