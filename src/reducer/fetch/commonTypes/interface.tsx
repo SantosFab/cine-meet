@@ -1,6 +1,6 @@
 import { urlBaseImg } from "../../../utils/env/env";
 
-interface ResultItem {
+export interface ResultItem {
   id: number;
   title: string;
   media_type: string | undefined;
