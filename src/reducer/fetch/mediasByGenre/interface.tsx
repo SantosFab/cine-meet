@@ -1,24 +1,7 @@
-import { FetchState } from "../commonTypes/interface";
-
-export interface ResultItem {
-  id: number;
-  title: string;
-  media_type: string | undefined;
-  name: string;
-  poster_path: string | null;
-  overview: string;
-}
-
-export interface MediaByGenreData {
-  page: number;
-  results: ResultItem[];
-  total_pages: number;
-  total_results: number;
-}
+import { FetchData, FetchState } from "../commonTypes/interface";
 
 export interface MediaByGenreState extends FetchState {
-  search: string;
-  data: MediaByGenreData | null;
+  data: FetchData | null;
 }
 
 export interface MediaByGenreParams {
