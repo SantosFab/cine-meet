@@ -3,20 +3,26 @@ import { Card, Col, Container, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import imageDefault from "../../assets/imageDefault.jpg";
 import { ResultItem } from "../../reducer/fetch/mediasByGenre/interface";
+import { TypeOfMedia } from "../../reducer/fetch/detail/interface";
 
 interface CardsProps {
   results: ResultItem[] | never[];
   urlBaseImg: string;
+  mediaType?: TypeOfMedia;
 }
 
-const Cards: FunctionComponent<CardsProps> = ({ results, urlBaseImg }) => {
+const Cards: FunctionComponent<CardsProps> = ({
+  results,
+  urlBaseImg,
+  mediaType = "movie",
+}) => {
   return (
     <Container className="d-flex flex-wrap justify-content-center">
       {results?.map((movie) => (
         <div className="ms-3 py-3 d-flex" key={movie.id}>
           <Col>
             <Card className="card">
-              <Link to={"test"}>
+              <Link to={`/Detail/${mediaType}/${movie.id}`}>
                 <Card.Img
                   variant="top"
                   className={movie.poster_path === null ? "imageDefault" : ""}

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchMediaByGenre,
   selectState,
-} from "../../../reducer/fetch/mediasByGenre/fetchmediaByGenre";
+} from "../../../reducer/fetch/mediasByGenre/fetchMediaByGenre";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { useLocation, useParams } from "react-router-dom";
 import Navegation from "../../../components/navegation/Navegation";
@@ -30,7 +30,7 @@ const Genre: FunctionComponent<GenreProps> = () => {
   };
   const urlBaseImg = selectDataState.urlBaseImg;
 
-  let { page } = useParams();
+  const { page } = useParams();
 
   useEffect(() => {
     const foundGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
@@ -41,13 +41,12 @@ const Genre: FunctionComponent<GenreProps> = () => {
     } else {
       dispatch(fetchMediaByGenre({ genre: genre, page }));
     }
-
     return () => {};
   }, [dispatch, page, urlLocation]);
 
   return (
     <div className="Cards">
-      <Cards results={results} urlBaseImg={urlBaseImg} />
+      <Cards results={results} urlBaseImg={urlBaseImg} mediaType={urlLocation === 'Séries' ? 'tv' : 'movie'} />
       <Navegation
         currentPageString={page}
         lastPage={total_pages}
