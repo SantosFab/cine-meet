@@ -10,11 +10,16 @@ import Navegation from "../../../components/navegation/Navegation";
 import { arrayGenre } from "../../../utils/genre/arrayGenre";
 import Cards from "../../../components/cards/Cards";
 import "./showMovies.css";
+import {
+  MediaByGenreParams,
+  MediaByGenreState,
+} from "../../../reducer/fetch/mediasByGenre/interface";
 
 interface GenreProps {}
 
 const Genre: FunctionComponent<GenreProps> = () => {
-  const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
+  const dispatch =
+    useDispatch<ThunkDispatch<MediaByGenreState, MediaByGenreParams, Action>>();
 
   const urlLocation = decodeURIComponent(useLocation().pathname.split("/")[1]);
 
