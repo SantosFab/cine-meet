@@ -2,18 +2,14 @@ import "./header.css";
 import { Nav, Navbar, Form, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setInputValue } from "../../reducer/fetch/search/fetchSearch";
-import { FetchSearchState } from "../../reducer/fetch/search/interface";
+
 import { arrayGenre } from "../../utils/genre/arrayGenre";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
 interface HeaderProps {}
 
 const Header: FunctionComponent<HeaderProps> = () => {
-  const inputValue: string = useSelector(
-    (state: FetchSearchState) => state.search
-  );
-  const dispatch = useDispatch();
+  const [search, setSearch] = useState('')
 
   return (
     <Navbar expand="xl" className="header" bg="dark" variant="dark">
@@ -39,8 +35,8 @@ const Header: FunctionComponent<HeaderProps> = () => {
                 <Form.Control
                   type="text"
                   placeholder="Pesquisar"
-                  onChange={(e) => dispatch(setInputValue(e.target.value))}
-                  value={inputValue}
+                  onChange={(e) => setSearch(e.target.value)}
+                  value={search}
                 />
               </Col>
               <Col xs="auto">

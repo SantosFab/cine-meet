@@ -6,7 +6,6 @@ import fetchDetailReducer from "../fetch/detail/fetchDetail";
 
 export default configureStore({
   reducer: {
-    fetchSearch: fetchSearchReducer,
     fetchData: fetchDataReducer,
     fetchDetai: fetchDetailReducer,
   },
