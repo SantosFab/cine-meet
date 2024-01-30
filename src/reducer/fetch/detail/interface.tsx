@@ -1,24 +1,30 @@
 import { FetchState } from "../commonTypes/interface";
 
+export interface Descriptor {
+  id: number;
+  name: string;
+}
+
 export interface DetailData {
-  poster_path: string | undefined;
-  title: string;
-  original_title: string;
-  original_language: string;
-  genres: string[];
+  id: number;
+  name: string;
   tagline: string;
-  production_companies: string[];
-  production_countries: string[];
-  ovierview: string;
+  overview: string;
+  poster_path: string | undefined;
+  original_name: string;
+  original_language: string;
+  genres: Descriptor[];
+  production_companies: Descriptor[];
+  production_countries: Descriptor[];
 }
 
 export interface DetailState extends FetchState {
   data: DetailData | null;
 }
 
-type typeOfMedia = "movie" | "tv";
+export type TypeOfMedia = "movie" | "tv" | undefined;
 
 export interface DetailParams {
-  type: typeOfMedia;
-  id: number;
+  type: TypeOfMedia ;
+  id: string | undefined;
 }
