@@ -1,0 +1,56 @@
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { apiToken, urlBaseImg, urlSearch } from "../../../utils/env/env";
+import { FetchData } from "../commonTypes/interface";
+import { ScearchState as SearchState, SearchParams } from "./interface";
+import { Accept, language } from "../../../utils/API/variable";
+
+const initialState: SearchState = {
+  data: null,
+  error: undefined,
+  scearch: "",
+  urlBaseImg,
+};
+
+export const fetchSearch = createAsyncThunk<FetchData, SearchParams>(
+  "fetchSearch",
+  async ({ query, page }) => {
+  
+    const response = await axios(urlSearch, {
+      params: {
+        query,
+        language,
+        page,
+      },
+      headers: {
+        Accept,
+        Authorization: apiToken,
+      },
+    });
+    return response.data;
+  }
+);
+
+const fetchReducer = createSlice({
+  name: "fetchSearch",
+  initialState,
+  reducers: {},
+
+  extraReducers: (builder) => {
+    builder.addCase(fetchSearch.fulfilled, (state, action) => {
+      state.data = action.payload;
+      state.error = undefined;
+    });
+    builder.addCase(fetchSearch.rejected, (state, action) => {
+      state.data = null;
+      state.error = action.error.message;
+    });
+  },
+});
+
+export const selectStateScearch = (state: { fetchSearch: SearchState }) =>
+  state.fetchSearch;
+export const selectErrorScearch = (state: { fetchSearch: SearchState }) =>
+  state.fetchSearch.error;
+
+export default fetchReducer.reducer;
