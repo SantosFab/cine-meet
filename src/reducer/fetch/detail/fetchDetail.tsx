@@ -1,18 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import {
-  FetchState,
-  PageData,
-  initialState,
-} from "../commonTypes/interface";
-import { apiToken, urlDetail } from "../../../utils/env/env";
-import { DetailParams } from "./interface";
+import { apiToken, urlBaseImg, urlDetail } from "../../../utils/env/env";
+import { DetailData, DetailParams, DetailState } from "./interface";
 import { Accept, language } from "../../../utils/API/variable";
 
-const fetchDetail = createAsyncThunk<PageData, DetailParams>(
+const initialState: DetailState = {
+  data: null,
+  error: undefined,
+  urlBaseImg,
+};
+
+export const fetchDetail = createAsyncThunk<DetailData, DetailParams>(
   "fetchDetail",
   async ({ id, type }) => {
-    const response = await axios.get(`${urlDetail}/${type}/${id}`, {
+    const response = await axios.get(`${urlDetail}${type}/${id}`, {
       params: {
         language,
       },
@@ -41,8 +42,8 @@ const fetchReducer = createSlice({
   },
 });
 
-export const selectState = (state: { fetchDetail: FetchState }) =>
+export const selectState = (state: { fetchDetail: DetailState }) =>
   state.fetchDetail;
-export const selectError = (state: { fetchDetail: FetchState }) =>
+export const selectError = (state: { fetchDetail: DetailState }) =>
   state.fetchDetail.error;
 export default fetchReducer.reducer;
