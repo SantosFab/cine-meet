@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import ShowMovies from "./route/showMovies/ShowMovies";
 import { arrayGenre } from "../utils/genre/arrayGenre";
 import Details from "./route/MovieDetail/MovieDetail";
+import SearchMovies from "./route/searchMovies/SearchMovies";
 
 const AppRouter = () => {
   return (
@@ -9,6 +10,7 @@ const AppRouter = () => {
       <Route index element={<ShowMovies />} />
       <Route path="/Detail/:type/:id" element={<Details />} />
       <Route path="/Page/:page" element={<ShowMovies />} />
+      <Route path="/SearchMovies/:movie" element={<SearchMovies />} />
       {arrayGenre.map((genre) => (
         <Route path={`/${genre[0]}`} element={<ShowMovies />} key={genre[0]}>
           <Route

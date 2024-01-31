@@ -23,12 +23,12 @@ const Genre: FunctionComponent<GenreProps> = () => {
 
   const urlLocation = decodeURIComponent(useLocation().pathname.split("/")[1]);
 
-  const selectDataState = useSelector(selectStateMediaByGenre);
-  const { total_pages, results } = selectDataState.data || {
+  const mediaByGenreState = useSelector(selectStateMediaByGenre);
+  const { total_pages, results } = mediaByGenreState.data || {
     total_pages: 1,
     results: [],
   };
-  const urlBaseImg = selectDataState.urlBaseImg;
+  const urlBaseImg = mediaByGenreState.urlBaseImg;
 
   const { page } = useParams();
 
