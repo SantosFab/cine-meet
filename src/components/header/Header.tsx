@@ -9,7 +9,9 @@ import { FunctionComponent, useState } from "react";
 interface HeaderProps {}
 
 const Header: FunctionComponent<HeaderProps> = () => {
-  const [search, setSearch] = useState('')
+  const dispatch =
+    useDispatch<ThunkDispatch<SearchState, SearchParams, Action>>();
+  const { search } = useSelector(selectStateScearch);
 
   return (
     <Navbar expand="xl" className="header" bg="dark" variant="dark">
@@ -35,7 +37,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
                 <Form.Control
                   type="text"
                   placeholder="Pesquisar"
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => dispatch(setInputValue(e.target.value))}
                   value={search}
                 />
               </Col>

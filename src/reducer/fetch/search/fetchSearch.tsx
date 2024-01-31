@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { apiToken, urlBaseImg, urlSearch } from "../../../utils/env/env";
 import { FetchData } from "../commonTypes/interface";
@@ -34,7 +34,7 @@ const fetchReducer = createSlice({
   name: "fetchSearch",
   initialState,
   reducers: {
-    setInputValue(state, action) {
+    setInputValue(state, action: PayloadAction<string>) {
       state.search = action.payload;
     },
   },
