@@ -51,9 +51,9 @@ const fetchReducer = createSlice({
   },
 });
 
-export const selectStateScearch = (state: { fetchSearch: SearchState }) =>
+export const selectStateSearch = (state: { fetchSearch: SearchState }) =>
   state.fetchSearch;
-export const selectErrorScearch = (state: { fetchSearch: SearchState }) =>
+export const selectErrorSearch = (state: { fetchSearch: SearchState }) =>
   state.fetchSearch.error;
 
 export const { setInputValue } = fetchReducer.actions;
