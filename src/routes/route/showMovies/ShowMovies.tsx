@@ -45,8 +45,12 @@ const Genre: FunctionComponent<GenreProps> = () => {
   }, [dispatch, page, urlLocation]);
 
   return (
-    <div className="Cards">
-      <Cards results={results} urlBaseImg={urlBaseImg} mediaType={urlLocation === 'Séries' ? 'tv' : 'movie'} />
+    <div className="ShowMovies">
+      <Cards
+        results={results}
+        urlBaseImg={urlBaseImg}
+        mediaType={urlLocation === "Séries" ? "tv" : "movie"}
+      />
       <Navegation
         currentPageString={page}
         lastPage={total_pages}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import imageDefault from "../../assets/imageDefault.jpg";
 import { TypeOfMedia } from "../../reducer/fetch/detail/interface";
 import { ResultItem } from "../../reducer/fetch/commonTypes/interface";
+import './cards.css'
 
 interface CardsProps {
   results: ResultItem[] | never[];
@@ -17,7 +18,7 @@ const Cards: FunctionComponent<CardsProps> = ({
   mediaType = "movie",
 }) => {
   return (
-    <Container className="d-flex flex-wrap justify-content-center">
+    <Container className="d-flex flex-wrap justify-content-center Cards">
       {results?.map((movie) => (
         <div className="ms-3 py-3 d-flex" key={movie.id}>
           <Col>
