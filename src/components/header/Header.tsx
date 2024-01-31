@@ -1,10 +1,20 @@
 import "./header.css";
 import { Nav, Navbar, Form, Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { arrayGenre } from "../../utils/genre/arrayGenre";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
+import { Action, ThunkDispatch } from "@reduxjs/toolkit";
+import {
+  SearchParams,
+  SearchState,
+} from "../../reducer/fetch/search/interface";
+import {
+  selectStateScearch,
+  setInputValue,
+} from "../../reducer/fetch/search/fetchSearch";
+import { isForBrowsing } from "./script";
 
 interface HeaderProps {}
 
@@ -12,7 +22,11 @@ const Header: FunctionComponent<HeaderProps> = () => {
   const dispatch =
     useDispatch<ThunkDispatch<SearchState, SearchParams, Action>>();
   const { search } = useSelector(selectStateScearch);
+  const navigate = useNavigate();
 
+  const handleSearch = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => isForBrowsing({ event, search, navigate });
   return (
     <Navbar expand="xl" className="header" bg="dark" variant="dark">
       <Container>
@@ -46,6 +60,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
                   type="submit"
                   className="me-3 btn btn-light"
                   aria-label="Search"
+                  onClick={(e) => handleSearch(e)}
                 >
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
