@@ -11,7 +11,7 @@ import {
   SearchState,
 } from "../../reducer/fetch/search/interface";
 import {
-  selectStateScearch,
+  selectStateSearch,
   setInputValue,
 } from "../../reducer/fetch/search/fetchSearch";
 import { isForBrowsing } from "./script";
@@ -21,12 +21,12 @@ interface HeaderProps {}
 const Header: FunctionComponent<HeaderProps> = () => {
   const dispatch =
     useDispatch<ThunkDispatch<SearchState, SearchParams, Action>>();
-  const { search } = useSelector(selectStateScearch);
+  const { search } = useSelector(selectStateSearch);
   const navigate = useNavigate();
 
   const handleSearch = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => isForBrowsing({ event, search, navigate });
+  ) => isForBrowsing({ event, search, navigate, dispatch });
   return (
     <Navbar expand="xl" className="header" bg="dark" variant="dark">
       <Container>
