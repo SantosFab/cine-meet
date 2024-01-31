@@ -2,20 +2,19 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { apiToken, urlBaseImg, urlSearch } from "../../../utils/env/env";
 import { FetchData } from "../commonTypes/interface";
-import { ScearchState as SearchState, SearchParams } from "./interface";
+import { SearchState, SearchParams } from "./interface";
 import { Accept, language } from "../../../utils/API/variable";
 
 const initialState: SearchState = {
   data: null,
   error: undefined,
-  scearch: "",
+  search: "",
   urlBaseImg,
 };
 
 export const fetchSearch = createAsyncThunk<FetchData, SearchParams>(
   "fetchSearch",
   async ({ query, page }) => {
-  
     const response = await axios(urlSearch, {
       params: {
         query,
@@ -34,7 +33,11 @@ export const fetchSearch = createAsyncThunk<FetchData, SearchParams>(
 const fetchReducer = createSlice({
   name: "fetchSearch",
   initialState,
-  reducers: {},
+  reducers: {
+    setInputValue(state, action) {
+      state.search = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder.addCase(fetchSearch.fulfilled, (state, action) => {
@@ -52,5 +55,7 @@ export const selectStateScearch = (state: { fetchSearch: SearchState }) =>
   state.fetchSearch;
 export const selectErrorScearch = (state: { fetchSearch: SearchState }) =>
   state.fetchSearch.error;
+
+export const { setInputValue } = fetchReducer.actions;
 
 export default fetchReducer.reducer;

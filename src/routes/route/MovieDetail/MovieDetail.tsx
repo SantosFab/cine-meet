@@ -11,7 +11,7 @@ import {
 } from "../../../reducer/fetch/detail/interface";
 import {
   fetchDetail,
-  selectState,
+  selectStateDetail,
 } from "../../../reducer/fetch/detail/fetchDetail";
 import "./movieDetail.css";
 import {  useParams } from "react-router-dom";
@@ -21,7 +21,7 @@ interface MovieDetailProps {}
 const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
   const dispatch =
     useDispatch<ThunkDispatch<DetailState, DetailParams, Action>>();
-  const selectDetailState = useSelector(selectState);
+  const selectDetailState = useSelector(selectStateDetail);
 
   const { type , id } = useParams();
 

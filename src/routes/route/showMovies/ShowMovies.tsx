@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchMediaByGenre,
-  selectState,
+  selectStateMediaByGenre,
 } from "../../../reducer/fetch/mediasByGenre/fetchMediaByGenre";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { useLocation, useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ const Genre: FunctionComponent<GenreProps> = () => {
 
   const urlLocation = decodeURIComponent(useLocation().pathname.split("/")[1]);
 
-  const selectDataState = useSelector(selectState);
+  const selectDataState = useSelector(selectStateMediaByGenre);
   const { total_pages, results } = selectDataState.data || {
     total_pages: 1,
     results: [],

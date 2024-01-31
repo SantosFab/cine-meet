@@ -1,8 +1,8 @@
 import { FetchData, FetchState } from "../commonTypes/interface";
 
-export interface ScearchState extends FetchState {
+export interface SearchState extends FetchState {
   data: FetchData | null;
-  scearch: string;
+  search: string;
 }
 
 export interface SearchParams {

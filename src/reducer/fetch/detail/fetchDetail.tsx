@@ -42,8 +42,8 @@ const fetchReducer = createSlice({
   },
 });
 
-export const selectState = (state: { fetchDetail: DetailState }) =>
+export const selectStateDetail = (state: { fetchDetail: DetailState }) =>
   state.fetchDetail;
-export const selectError = (state: { fetchDetail: DetailState }) =>
+export const selectErrorDetail = (state: { fetchDetail: DetailState }) =>
   state.fetchDetail.error;
 export default fetchReducer.reducer;

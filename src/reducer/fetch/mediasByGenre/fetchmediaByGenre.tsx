@@ -53,8 +53,8 @@ const fetchReducer = createSlice({
   },
 });
 
-export const selectState = (state: { fetchData: MediaByGenreState }) =>
+export const selectStateMediaByGenre = (state: { fetchData: MediaByGenreState }) =>
   state.fetchData;
-export const selectError = (state: { fetchData: MediaByGenreState }) =>
+export const selectErrorMediaByGenre = (state: { fetchData: MediaByGenreState }) =>
   state.fetchData.error;
 export default fetchReducer.reducer;
