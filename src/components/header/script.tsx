@@ -27,6 +27,6 @@ export const isForBrowsing = ({
   } else {
     const str = movieSearchPath(search);
     dispatch(setInputValue(""));
-    navigate(str, { state: search });
+    navigate(str+'/1', { state: search });
   }
 };
