@@ -5,7 +5,6 @@ export interface MediaByGenreState extends FetchState {
 }
 
 export interface MediaByGenreParams {
-  isSeries?: boolean;
   page?: string;
   genre?: string;
 }

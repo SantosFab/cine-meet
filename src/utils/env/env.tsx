@@ -6,9 +6,6 @@ export const apiToken = process.env.REACT_APP_API_TOKEN;
 export const urlMovies: string =
   process.env.REACT_APP_API_URL_FETCH_MOVIES ?? urldefault;
 
-export const urlSeries: string =
-  process.env.REACT_APP_API_URL_FETCH_SERIES ?? urldefault;
-
 export const urlSearch: string =
   process.env.REACT_APP_API_URL_FETCH_SEARCH ?? urldefault;
 

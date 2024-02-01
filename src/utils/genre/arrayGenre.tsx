@@ -9,5 +9,4 @@ export const arrayGenre: string[][] = [
   ["Romance", "10749"],
   ["Ficção", "878"],
   ["Guerra", "10752"],
-  ["Séries"],
 ];

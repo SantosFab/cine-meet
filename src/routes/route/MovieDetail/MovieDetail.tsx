@@ -7,7 +7,6 @@ import {
   Descriptor,
   DetailParams,
   DetailState,
-  TypeOfMedia,
 } from "../../../reducer/fetch/detail/interface";
 import {
   fetchDetail,
@@ -24,7 +23,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
     useDispatch<ThunkDispatch<DetailState, DetailParams, Action>>();
   const selectDetailState = useSelector(selectStateDetail);
 
-  const { type , id } = useParams();
+  const { id } = useParams();
 
   const {
     poster_path,
@@ -56,10 +55,10 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchDetail({ id: id, type: type as TypeOfMedia }));
+    dispatch(fetchDetail({ id: id }));
 
     return () => {};
-  }, [dispatch, id, type]);
+  }, [dispatch, id]);
 
   return (
     <div className="DetailMovie">

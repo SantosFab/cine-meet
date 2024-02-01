@@ -22,9 +22,6 @@ export interface DetailState extends FetchState {
   data: DetailData | null;
 }
 
-export type TypeOfMedia = "movie" | "tv" | undefined;
-
 export interface DetailParams {
-  type: TypeOfMedia ;
   id: string | undefined;
 }

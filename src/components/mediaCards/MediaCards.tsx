@@ -1,4 +1,3 @@
-import { TypeOfMedia } from "../../reducer/fetch/detail/interface";
 import { FunctionComponent } from "react";
 import { Card, Col, Container, ListGroup } from "react-bootstrap";
 import { ResultItem } from "../../reducer/fetch/commonTypes/interface";
@@ -11,12 +10,12 @@ import "./mediaCards.css";
 interface MediaCardsProps {
   results: ResultItem[] | never[];
 
-  mediaType?: TypeOfMedia;
+
 }
 
 const MediaCards: FunctionComponent<MediaCardsProps> = ({
   results,
-  mediaType = "movie",
+ 
 }) => (
   <Container className="d-flex flex-wrap justify-content-start MediaCards">
     {results?.map(
@@ -24,7 +23,7 @@ const MediaCards: FunctionComponent<MediaCardsProps> = ({
         <div className="ms-3 py-3 d-flex FilmCard" key={id}>
           <Col>
             <Card>
-              <Link to={`/Detail/${media_type ?? mediaType}/${id}`}>
+              <Link to={`/Detail/${id}`}>
                 <Card.Img
                   variant="top"
                   className={poster_path === null ? "imageDefault" : ""}

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { apiKey, apiToken, urlMovies, urlSeries } from "../../../utils/env/env";
+import { apiKey, apiToken, urlMovies } from "../../../utils/env/env";
 import { MediaByGenreParams, MediaByGenreState } from "./interface";
 import axios from "axios";
 import { Accept, language } from "../../../utils/API/variable";
@@ -13,8 +13,8 @@ const initialState: MediaByGenreState = {
 export const fetchMediaByGenre = createAsyncThunk<
   FetchData,
   MediaByGenreParams
->("fetchMediaByGenre", async ({ isSeries = false, page, genre }) => {
-  const response = await axios.get(isSeries ? urlSeries : urlMovies, {
+>("fetchMediaByGenre", async ({ page, genre }) => {
+  const response = await axios.get(urlMovies, {
     params: {
       language,
       page: page ?? "1",

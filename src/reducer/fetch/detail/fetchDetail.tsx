@@ -11,8 +11,8 @@ const initialState: DetailState = {
 
 export const fetchDetail = createAsyncThunk<DetailData, DetailParams>(
   "fetchDetail",
-  async ({ id, type }) => {
-    const response = await axios.get(`${urlDetail}${type}/${id}`, {
+  async ({ id }) => {
+    const response = await axios.get(`${urlDetail}${id}`, {
       params: {
         language,
       },

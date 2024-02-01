@@ -35,20 +35,14 @@ const Genre: FunctionComponent<GenreProps> = () => {
     const foundGenre = arrayGenre.find((genre) => genre[0] === urlLocation);
     const genre: string | undefined = foundGenre?.[1];
 
-    if (urlLocation === "Séries") {
-      dispatch(fetchMediaByGenre({ isSeries: true, page }));
-    } else {
-      dispatch(fetchMediaByGenre({ genre: genre, page }));
-    }
+    dispatch(fetchMediaByGenre({ genre: genre, page }));
+
     return () => {};
   }, [dispatch, page, urlLocation]);
 
   return (
     <div className="ShowMovies">
-      <MediaCards
-        results={results}
-        mediaType={urlLocation === "Séries" ? "tv" : "movie"}
-      />
+      <MediaCards results={results} />
       <Navegation
         currentPageString={page}
         lastPage={total_pages}
