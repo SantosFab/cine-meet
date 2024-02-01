@@ -15,6 +15,7 @@ import {
 import "./movieDetail.css";
 import { useParams } from "react-router-dom";
 import { urlBaseImg } from "../../../utils/env/env";
+import { listItems } from "./script";
 
 interface MovieDetailProps {}
 
@@ -24,7 +25,6 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
   const selectDetailState = useSelector(selectStateDetail);
 
   const { id } = useParams();
-  console.log(selectDetailState.data);
 
   const {
     poster_path,
@@ -38,21 +38,8 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
     tagline,
   } = selectDetailState?.data || {};
 
-  function hasData(str: string, data: string | string[] | undefined) {
-    return data !== "" && data !== undefined && data?.length !== 0 ? (
-      <>
-        <strong>{str}:</strong> {data}
-      </>
-    ) : (
-      ""
-    );
-  }
-
-  function listItems(array: Descriptor[] | undefined): string[] | undefined {
-    return array?.map((companie, index) => {
-      return index === array.length - 1 ? companie.name : `${companie.name} | `;
-    });
-  }
+  const handleListItems = (str: string, data?: Descriptor[] | string) =>
+    listItems({ str, data });
 
   useEffect(() => {
     dispatch(fetchDetail({ id: id }));
@@ -99,18 +86,16 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
               <Col>
                 <strong>Descrição</strong>
               </Col>
-              <Col>{hasData("Título no Brasil", title)}</Col>
-              <Col>{hasData("Título original", original_title)}</Col>
-              <Col>{hasData("Língua original", original_language)}</Col>
-              <Col>{hasData("Gênero", listItems(genres))}</Col>
-              <Col>{hasData("Slogan", tagline)}</Col>
+              <Col>{handleListItems("Título no Brasil", title)}</Col>
+              <Col>{handleListItems("Título original", original_title)}</Col>
+              <Col>{handleListItems("Língua original", original_language)}</Col>
+              <Col>{handleListItems("Gênero", genres)}</Col>
+              <Col>{handleListItems("Slogan", tagline)} </Col>
+              <Col>{handleListItems("Produtoras", production_companies)}</Col>
               <Col>
-                {hasData("Produtoras", listItems(production_companies))}
+                {handleListItems("Países Produtores", production_countries)}
               </Col>
-              <Col>
-                {hasData("Países Produtores", listItems(production_countries))}
-              </Col>
-              <Col className="pt-5">{hasData("Sinopse", overview)}</Col>
+              <Col className="pt-5">{handleListItems("Sinopse", overview)}</Col>
             </Col>
           </Row>
         </Col>
