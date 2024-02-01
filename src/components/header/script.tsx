@@ -7,7 +7,7 @@ const movieSearchPath = (str: string) => {
   const normalizedStr = unidecode(str).toLowerCase();
   return `/SearchMovies/${normalizedStr
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")}`;
+    .replace(/^-+|-+$/g, "")}/1`;
 };
 
 export const isForBrowsing = ({
@@ -27,6 +27,6 @@ export const isForBrowsing = ({
   } else {
     const str = movieSearchPath(search);
     dispatch(setInputValue(""));
-    navigate(str+'/1', { state: search });
+    navigate(str);
   }
 };
