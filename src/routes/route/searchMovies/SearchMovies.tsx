@@ -5,7 +5,7 @@ import {
   selectStateSearch,
   fetchSearch,
 } from "../../../reducer/fetch/search/fetchSearch";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Cards from "../../../components/cards/Cards";
 import Navegation from "../../../components/navegation/Navegation";
 import './searchMovies.css'
@@ -22,15 +22,13 @@ const SearchMovies: FunctionComponent<SearchMoviesProps> = () => {
     total_pages: 1,
   };
 
-  console.log(results.length);
-
   const { query, page } = useParams();
   const url = `SearchMovies/${query}`;
 
   useEffect(() => {
     dispatch(fetchSearch({ query: query as string, page: page }));
     return () => {};
-  }, [dispatch, query]);
+  }, [dispatch, query, page]);
 
   return results.length !== 0 ? (
     <div className="Search">
