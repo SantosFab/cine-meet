@@ -28,7 +28,6 @@ const Genre: FunctionComponent<GenreProps> = () => {
     total_pages: 1,
     results: [],
   };
-  const urlBaseImg = mediaByGenreState.urlBaseImg;
 
   const { page } = useParams();
 
@@ -48,7 +47,6 @@ const Genre: FunctionComponent<GenreProps> = () => {
     <div className="ShowMovies">
       <Cards
         results={results}
-        urlBaseImg={urlBaseImg}
         mediaType={urlLocation === "Séries" ? "tv" : "movie"}
       />
       <Navegation

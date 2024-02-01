@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { apiToken, urlBaseImg, urlSearch } from "../../../utils/env/env";
+import { apiToken, urlSearch } from "../../../utils/env/env";
 import { FetchData } from "../commonTypes/interface";
 import { SearchState, SearchParams } from "./interface";
 import { Accept, language } from "../../../utils/API/variable";
@@ -9,7 +9,6 @@ const initialState: SearchState = {
   data: null,
   error: undefined,
   search: "",
-  urlBaseImg,
 };
 
 export const fetchSearch = createAsyncThunk<FetchData, SearchParams>(

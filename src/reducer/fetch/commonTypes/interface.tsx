@@ -1,6 +1,5 @@
 export interface FetchState {
   error: string | undefined;
-  urlBaseImg: string;
 }
 
 export interface ResultItem {

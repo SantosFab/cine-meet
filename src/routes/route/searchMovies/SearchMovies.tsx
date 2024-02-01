@@ -8,7 +8,7 @@ import {
 import { useParams } from "react-router-dom";
 import Cards from "../../../components/cards/Cards";
 import Navegation from "../../../components/navegation/Navegation";
-import './searchMovies.css'
+import "./searchMovies.css";
 
 interface SearchMoviesProps {}
 
@@ -16,7 +16,7 @@ const SearchMovies: FunctionComponent<SearchMoviesProps> = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
 
   const searchState = useSelector(selectStateSearch);
-  const urlBaseImg = searchState.urlBaseImg;
+
   const { results, total_pages } = searchState.data || {
     results: [],
     total_pages: 1,
@@ -32,7 +32,7 @@ const SearchMovies: FunctionComponent<SearchMoviesProps> = () => {
 
   return results.length !== 0 ? (
     <div className="Search">
-      <Cards results={results} urlBaseImg={urlBaseImg} />
+      <Cards results={results} />
       <Navegation
         lastPage={total_pages}
         currentPageString={page}

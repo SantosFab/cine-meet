@@ -15,6 +15,7 @@ import {
 } from "../../../reducer/fetch/detail/fetchDetail";
 import "./movieDetail.css";
 import {  useParams } from "react-router-dom";
+import { urlBaseImg } from "../../../utils/env/env";
 
 interface MovieDetailProps {}
 
@@ -36,7 +37,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
     production_countries,
     tagline,
   } = selectDetailState?.data || { name: "" };
-  const urlBaseImg = selectDetailState.urlBaseImg;
+  
 
   function hasData(str: string, data: string | string[] | undefined) {
     return data !== "" && data !== undefined && data?.length !== 0 ? (

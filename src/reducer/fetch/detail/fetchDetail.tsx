@@ -1,13 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { apiToken, urlBaseImg, urlDetail } from "../../../utils/env/env";
+import { apiToken, urlDetail } from "../../../utils/env/env";
 import { DetailData, DetailParams, DetailState } from "./interface";
 import { Accept, language } from "../../../utils/API/variable";
 
 const initialState: DetailState = {
   data: null,
   error: undefined,
-  urlBaseImg,
 };
 
 export const fetchDetail = createAsyncThunk<DetailData, DetailParams>(
