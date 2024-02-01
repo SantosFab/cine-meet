@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 
-interface ImageDefaultProps {}
+interface CopyrightProps {}
 
-const ImageDefault: FunctionComponent<ImageDefaultProps> = () => {
+const Copyright: FunctionComponent<CopyrightProps> = () => {
   return (
     <div className="authorsLicense">
       Image by{" "}
@@ -25,4 +25,4 @@ const ImageDefault: FunctionComponent<ImageDefaultProps> = () => {
   );
 };
 
-export default ImageDefault;
+export default Copyright;
