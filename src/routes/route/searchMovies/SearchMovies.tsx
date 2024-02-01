@@ -6,7 +6,7 @@ import {
   fetchSearch,
 } from "../../../reducer/fetch/search/fetchSearch";
 import { useParams } from "react-router-dom";
-import Cards from "../../../components/cards/Cards";
+import MediaCards from "../../../components/mediaCards/MediaCards";
 import Navegation from "../../../components/navegation/Navegation";
 import "./searchMovies.css";
 
@@ -32,7 +32,7 @@ const SearchMovies: FunctionComponent<SearchMoviesProps> = () => {
 
   return results.length !== 0 ? (
     <div className="Search">
-      <Cards results={results} />
+      <MediaCards results={results} />
       <Navegation
         lastPage={total_pages}
         currentPageString={page}

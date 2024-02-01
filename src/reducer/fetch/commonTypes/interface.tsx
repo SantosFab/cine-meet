@@ -4,11 +4,11 @@ export interface FetchState {
 
 export interface ResultItem {
   id: number;
-  title: string;
-  media_type: string | undefined;
   name: string;
-  poster_path: string | null;
+  title: string;
   overview: string;
+  media_type: string | undefined;
+  poster_path: string | null;
 }
 
 export interface FetchData {

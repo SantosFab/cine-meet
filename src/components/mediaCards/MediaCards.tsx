@@ -4,16 +4,16 @@ import { Container } from "react-bootstrap";
 import { ResultItem } from "../../reducer/fetch/commonTypes/interface";
 import React from "react";
 
-import "./cards.css";
+import "./mediaCards.css";
 import FilmeCard from "../filmCard/FilmCard";
 
-interface CardsProps {
+interface MediaCardsProps {
   results: ResultItem[] | never[];
 
   mediaType?: TypeOfMedia;
 }
 
-const Cards: FunctionComponent<CardsProps> = ({
+const MediaCards: FunctionComponent<MediaCardsProps> = ({
   results,
 
   mediaType = "movie",
@@ -27,16 +27,16 @@ const Cards: FunctionComponent<CardsProps> = ({
           <FilmeCard
             key={id}
             id={id}
-            mediaType={mediaType}
-            media_type={media_type}
             name={name}
-            overview={overview}
-            poster_path={poster_path}
             title={title}
+            overview={overview}
+            media_type={media_type}
+            poster_path={poster_path}
+            mediaType={mediaType}
           />
         )
     )}
   </Container>
 );
 
-export default Cards;
+export default MediaCards;

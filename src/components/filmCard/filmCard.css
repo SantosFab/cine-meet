@@ -1,0 +1,63 @@
+.FilmCard .card {
+  width: 15rem;
+}
+
+.FilmCard .card-img-top {
+  height: 357px;
+}
+
+.FilmCard .card-body {
+  padding: 0 16px;
+  margin-top: 8px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FilmCard .card-title {
+  font-size: 0.9em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  text-align: center;
+}
+
+.FilmCard .list-group-flush {
+  height: 103.5px;
+  display: flex;
+  justify-content: center;
+}
+
+.FilmCard .list-group-item {
+  font-size: 0.8em;
+  text-align: justify;
+  -webkit-line-clamp: 5;
+  padding: 4px 14px;
+  display: flex;
+  align-self: center;
+  text-overflow: ellipsis;
+}
+
+.FilmCard .card-title,
+.FilmCard .list-group-item {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.FilmCard .descriptionVoid {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.FilmCard .imageDefault {
+  height: 339px;
+}
+
+.FilmCard .authorsLicense {
+  background-color: #ffea00;
+  text-align: center;
+  font-size: 12px;
+}

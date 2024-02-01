@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { urlBaseImg } from "../../utils/env/env";
 import ImageDefault from "../imageDefault/ImageDefault";
 import imageDefault from "../../assets/imageDefault.jpg";
+import './filmCard.css'
 
 interface FilmeCardProps {
   id: number;
@@ -25,7 +26,7 @@ const FilmeCard: FunctionComponent<FilmeCardProps> = ({
   mediaType,
 }) => {
   return (
-    <div className="ms-3 py-3 d-flex" key={id}>
+    <div className="ms-3 py-3 d-flex FilmCard" key={id}>
       <Col>
         <Card className="card">
           <Link to={`/Detail/${media_type ?? mediaType}/${id}`}>

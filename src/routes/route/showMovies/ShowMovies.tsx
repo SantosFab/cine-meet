@@ -8,7 +8,7 @@ import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { useLocation, useParams } from "react-router-dom";
 import Navegation from "../../../components/navegation/Navegation";
 import { arrayGenre } from "../../../utils/genre/arrayGenre";
-import Cards from "../../../components/cards/Cards";
+import MediaCards from "../../../components/mediaCards/MediaCards";
 import "./showMovies.css";
 import {
   MediaByGenreParams,
@@ -45,7 +45,7 @@ const Genre: FunctionComponent<GenreProps> = () => {
 
   return (
     <div className="ShowMovies">
-      <Cards
+      <MediaCards
         results={results}
         mediaType={urlLocation === "Séries" ? "tv" : "movie"}
       />
