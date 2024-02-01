@@ -6,7 +6,6 @@ import {
   isNumber,
 } from "./script";
 
-
 interface NavegatinProps {
   currentPageString: string | undefined;
   lastPage: number;
@@ -24,7 +23,7 @@ const Navegatin: FunctionComponent<NavegatinProps> = ({
 
   return (
     <Pagination className="d-flex justify-content-center">
-      <Pagination.First href={`/${Location === "Page" ? "" : Location}`} />
+      <Pagination.First href={`/${Location}/1`} disabled={currentPage === 1} />
       {currentPage > 3 && isFiveHundred > 5 && <Pagination.Ellipsis disabled />}
       {generatePaginationItems({
         urlLocation: Location,
@@ -34,7 +33,7 @@ const Navegatin: FunctionComponent<NavegatinProps> = ({
       {currentPage < isFiveHundred - 2 && isFiveHundred > 5 && (
         <Pagination.Ellipsis disabled />
       )}
-      <Pagination.Last href={`/${Location}/${isFiveHundred}`} />
+      <Pagination.Last href={`/${Location}/${isFiveHundred}`} disabled={currentPage === isFiveHundred}/>
     </Pagination>
   );
 };

@@ -40,7 +40,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {arrayGenre.map((genre) => (
-              <Link to={`/${genre[0]}`} key={genre[0]}>
+              <Link to={`/${genre[0]}/1`} key={genre[0]}>
                 {genre[0]}
               </Link>
             ))}
