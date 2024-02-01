@@ -7,5 +7,5 @@ export interface SearchState extends FetchState {
 
 export interface SearchParams {
   query: string;
-  page: number;
+  page?: string | undefined;
 }

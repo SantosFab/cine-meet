@@ -1,0 +1,11 @@
+.searchVoid {
+    color: white;
+    height: 100%;
+    min-height: calc(100vh - 56px);
+  }
+  
+  .Search,
+  .searchVoid {
+    background: linear-gradient(to right, rgb(221, 214, 243), rgb(250, 172, 168));
+  }
+  
