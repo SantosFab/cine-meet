@@ -13,7 +13,7 @@ import {
   selectStateDetail,
 } from "../../../reducer/fetch/detail/fetchDetail";
 import "./movieDetail.css";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { urlBaseImg } from "../../../utils/env/env";
 
 interface MovieDetailProps {}
@@ -24,19 +24,19 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
   const selectDetailState = useSelector(selectStateDetail);
 
   const { id } = useParams();
+  console.log(selectDetailState.data);
 
   const {
     poster_path,
-    name,
-    original_name,
+    title,
+    original_title,
     original_language,
     genres,
     overview,
     production_companies,
     production_countries,
     tagline,
-  } = selectDetailState?.data || { name: "" };
-  
+  } = selectDetailState?.data || {};
 
   function hasData(str: string, data: string | string[] | undefined) {
     return data !== "" && data !== undefined && data?.length !== 0 ? (
@@ -76,7 +76,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
                 thumbnail
                 alt={
                   poster_path !== null
-                    ? `Poster do ${name}`
+                    ? `Poster do ${title}`
                     : "Imagem de Alexa do Pixabay"
                 }
               />
@@ -99,8 +99,8 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
               <Col>
                 <strong>Descrição</strong>
               </Col>
-              <Col>{hasData("Título no Brasil", name)}</Col>
-              <Col>{hasData("Título original", original_name)}</Col>
+              <Col>{hasData("Título no Brasil", title)}</Col>
+              <Col>{hasData("Título original", original_title)}</Col>
               <Col>{hasData("Língua original", original_language)}</Col>
               <Col>{hasData("Gênero", listItems(genres))}</Col>
               <Col>{hasData("Slogan", tagline)}</Col>

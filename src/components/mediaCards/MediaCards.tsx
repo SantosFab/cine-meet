@@ -9,52 +9,43 @@ import "./mediaCards.css";
 
 interface MediaCardsProps {
   results: ResultItem[] | never[];
-
-
 }
 
-const MediaCards: FunctionComponent<MediaCardsProps> = ({
-  results,
- 
-}) => (
+const MediaCards: FunctionComponent<MediaCardsProps> = ({ results }) => (
   <Container className="d-flex flex-wrap justify-content-start MediaCards">
-    {results?.map(
-      ({ id, media_type, name, overview, poster_path, title }: ResultItem) => (
-        <div className="ms-3 py-3 d-flex FilmCard" key={id}>
-          <Col>
-            <Card>
-              <Link to={`/Detail/${id}`}>
-                <Card.Img
-                  variant="top"
-                  className={poster_path === null ? "imageDefault" : ""}
-                  src={
-                    poster_path !== null
-                      ? urlBaseImg + poster_path
-                      : imageDefault
-                  }
-                  alt={
-                    poster_path !== null
-                      ? `Poster do ${title}`
-                      : "Imagem de Alexa do Pixabay"
-                  }
-                />
-              </Link>
-              {poster_path === null && <Copyright />}
-              <Card.Body>
-                <Card.Title>{title ?? name} </Card.Title>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item
-                  className={overview !== "" ? "" : "descriptionVoid"}
-                >
-                  {overview !== "" ? overview : "Não há descrição"}
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          </Col>
-        </div>
-      )
-    )}
+    {results?.map(({ id, overview, poster_path, title }: ResultItem) => (
+      <div className="ms-3 py-3 d-flex FilmCard" key={id}>
+        <Col>
+          <Card>
+            <Link to={`/Detail/${id}`}>
+              <Card.Img
+                variant="top"
+                className={poster_path === null ? "imageDefault" : ""}
+                src={
+                  poster_path !== null ? urlBaseImg + poster_path : imageDefault
+                }
+                alt={
+                  poster_path !== null
+                    ? `Poster do ${title}`
+                    : "Imagem de Alexa do Pixabay"
+                }
+              />
+            </Link>
+            {poster_path === null && <Copyright />}
+            <Card.Body>
+              <Card.Title>{title} </Card.Title>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+              <ListGroup.Item
+                className={overview !== "" ? "" : "descriptionVoid"}
+              >
+                {overview !== "" ? overview : "Não há descrição"}
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
+        </Col>
+      </div>
+    ))}
   </Container>
 );
 

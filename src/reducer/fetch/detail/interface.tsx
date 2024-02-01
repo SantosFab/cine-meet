@@ -7,11 +7,11 @@ export interface Descriptor {
 
 export interface DetailData {
   id: number;
-  name: string;
+  title: string;
   tagline: string;
   overview: string;
   poster_path: string | undefined;
-  original_name: string;
+  original_title: string;
   original_language: string;
   genres: Descriptor[];
   production_companies: Descriptor[];
