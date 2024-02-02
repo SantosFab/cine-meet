@@ -21,8 +21,8 @@
 }
 
 .DetailMovie .imageDefault {
-  height: 600px;
-  width: 403px;
+  max-height: 600px;
+  max-width: 403px;
 }
 
 .DetailMovie .authorsLicense {

@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 
-interface CopyrightProps {}
+interface CopyRightProps {}
 
-const Copyright: FunctionComponent<CopyrightProps> = () => {
+const Copyright: FunctionComponent<CopyRightProps> = () => {
   return (
     <div className="authorsLicense">
       Image by{" "}

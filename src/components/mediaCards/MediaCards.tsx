@@ -4,7 +4,7 @@ import { ResultItem } from "../../reducer/fetch/commonTypes/interface";
 import { Link } from "react-router-dom";
 import { urlBaseImg } from "../../utils/env/env";
 import imageDefault from "../../assets/imageDefault.jpg";
-import Copyright from "../copyright/Copyright";
+import Copyright from "../copyright/CopyRight";
 import "./mediaCards.css";
 
 interface MediaCardsProps {
@@ -12,7 +12,7 @@ interface MediaCardsProps {
 }
 
 const MediaCards: FunctionComponent<MediaCardsProps> = ({ results }) => (
-  <Container className="d-flex flex-wrap justify-content-start MediaCards">
+  <Container className="d-flex flex-wrap justify-content-center MediaCards">
     {results?.map(({ id, overview, poster_path, title }: ResultItem) => (
       <div className="ms-3 py-3 d-flex FilmCard" key={id}>
         <Col>

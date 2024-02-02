@@ -16,6 +16,7 @@ import "./movieDetail.css";
 import { useParams } from "react-router-dom";
 import { urlBaseImg } from "../../../utils/env/env";
 import { listItems } from "./script";
+import Copyright from "../../../components/copyright/CopyRight";
 
 interface MovieDetailProps {}
 
@@ -67,20 +68,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
                     : "Imagem de Alexa do Pixabay"
                 }
               />
-              {poster_path !== null ? (
-                <></>
-              ) : (
-                <div className="authorsLicense">
-                  Image by{" "}
-                  <a href="https://pixabay.com/users/alexas_fotos-686414/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=821993">
-                    Alexa
-                  </a>{" "}
-                  from{" "}
-                  <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=821993">
-                    Pixabay
-                  </a>
-                </div>
-              )}
+              {poster_path !== null ? <></> : <Copyright />}
             </Col>
             <Col className="description">
               <Col>

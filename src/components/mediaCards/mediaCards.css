@@ -25,7 +25,6 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-
   text-align: center;
 }
 
@@ -65,4 +64,66 @@
   background-color: #ffea00;
   text-align: center;
   font-size: 12px;
+}
+
+@media screen and (max-width: 992px) {
+  .MediaCards .card {
+    width: 10rem;
+  }
+
+  .MediaCards .card-img-top {
+    height: 237px;
+  }
+
+  .MediaCards .imageDefault {
+    height: 221.4px;
+  }
+
+  .MediaCards .authorsLicense,
+  .MediaCards .card-title {
+    font-size: 0.65em;
+  }
+
+  .MediaCards .list-group-item {
+    font-size: 0.6em;
+    padding: 2px 7px;
+  }
+
+  .MediaCards .list-group-flush {
+    height: 76px;
+  }
+
+  .MediaCards .card-body {
+    margin-top: 8px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .MediaCards .card {
+    width: 7rem;
+  }
+
+  .MediaCards .card-img-top {
+    height: 165px;
+  }
+
+  .MediaCards .imageDefault {
+    height: 138.62px;
+  }
+
+  .MediaCards .authorsLicense,
+  .MediaCards .card-title {
+    font-size: 0.55em;
+  }
+
+  .MediaCards .list-group-flush {
+    height: 76px;
+    display: none;
+  }
+
+  .MediaCards .card-body {
+    margin-top: 10px;
+    height: 25px;
+  }
 }
