@@ -16,6 +16,8 @@ export interface DetailData {
   genres: Descriptor[];
   production_companies: Descriptor[];
   production_countries: Descriptor[];
+  release_date: string;
+  popularity: string;
 }
 
 export interface DetailState extends FetchState {
