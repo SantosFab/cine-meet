@@ -72,7 +72,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
             </Col>
             <Col className="description">
               <Col>
-                <strong>Descrição</strong>
+                <strong>DESCRIÇÃO</strong>
               </Col>
               <Col>{handleListItems("Título no Brasil", title)}</Col>
               <Col>{handleListItems("Título original", original_title)}</Col>
@@ -83,7 +83,9 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
               <Col>
                 {handleListItems("Países Produtores", production_countries)}
               </Col>
-              <Col className="pt-5">{handleListItems("Sinopse", overview)}</Col>
+              <Col className="mt-auto align-self-end">
+                {handleListItems("Sinopse", overview)}
+              </Col>
             </Col>
           </Row>
         </Col>
