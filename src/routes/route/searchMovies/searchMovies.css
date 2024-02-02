@@ -8,4 +8,9 @@
   .searchVoid {
     background: linear-gradient(to right, rgb(221, 214, 243), rgb(250, 172, 168));
   }
+
+  .Search .pagination {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
   

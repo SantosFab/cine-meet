@@ -22,7 +22,7 @@ const Navegatin: FunctionComponent<NavegatinProps> = ({
   const isFiveHundred = isLessThanFiveHundred({ number: lastPage });
 
   return (
-    <Pagination className="d-flex justify-content-center">
+    <Pagination className="d-flex justify-content-center pb-4">
       <Pagination.First href={`/${Location}/1`} disabled={currentPage === 1} />
       {currentPage > 3 && isFiveHundred > 5 && <Pagination.Ellipsis disabled />}
       {generatePaginationItems({
