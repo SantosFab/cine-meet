@@ -37,6 +37,8 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
     production_companies,
     production_countries,
     tagline,
+    popularity,
+    release_date,
   } = selectDetailState?.data || {};
 
   const handleListItems = (str: string, data?: Descriptor[] | string) =>
@@ -76,9 +78,11 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
               </Col>
               <Col>{handleListItems("Título no Brasil", title)}</Col>
               <Col>{handleListItems("Título original", original_title)}</Col>
-              <Col>{handleListItems("Língua original", original_language)}</Col>
-              <Col>{handleListItems("Gênero", genres)}</Col>
+              <Col>{handleListItems("Data de lançamento", release_date)}</Col>
               <Col>{handleListItems("Slogan", tagline)} </Col>
+              <Col>{handleListItems("Gênero", genres)}</Col>
+              <Col>{handleListItems("Popularidade", popularity)}</Col>
+              <Col>{handleListItems("Língua original", original_language)}</Col>
               <Col>{handleListItems("Produtoras", production_companies)}</Col>
               <Col>
                 {handleListItems("Países Produtores", production_countries)}
