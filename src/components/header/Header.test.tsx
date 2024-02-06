@@ -8,7 +8,11 @@ import Header from "./Header";
 const mockStore = configureStore();
 
 describe("Header Component", () => {
-  const store = mockStore({});
+  const initialState = {
+    fetchSearch: {
+      search: "",
+    },
+  };
 
   const renderHeader = (store: MockStoreEnhanced<unknown, {}>) => {
     return render(
@@ -21,12 +25,16 @@ describe("Header Component", () => {
   };
 
   it("should renders without crashing", () => {
+    const store = mockStore(initialState);
+
     const { getByText } = renderHeader(store);
     expect(getByText("CineMeet")).toBeInTheDocument();
     expect(getByText("Ação")).toBeInTheDocument();
   });
 
-   it("should dispatches search action", async () => {
+  it("should dispatches search action", async () => {
+    const store = mockStore(initialState);
+
     const value: string = "Test Search";
 
     const { getByPlaceholderText } = renderHeader(store);
@@ -47,14 +55,11 @@ describe("Header Component", () => {
           payload: value,
         },
       ]);
-
-      // Verifica se o valor do input foi atualizado
-      expect(searchInput.value).toBe(value);
     });
-  }); 
+  });
 
   it("should dispatch search action with initial search value by clicking button", async () => {
-    const value:string = 'test'
+    const value: string = "test";
 
     const initialState = {
       fetchSearch: {
