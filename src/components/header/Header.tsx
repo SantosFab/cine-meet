@@ -21,7 +21,8 @@ interface HeaderProps {}
 const Header: FunctionComponent<HeaderProps> = () => {
   const dispatch =
     useDispatch<ThunkDispatch<SearchState, SearchParams, Action>>();
-  const { search } = useSelector(selectStateSearch);
+  const searchState = useSelector(selectStateSearch);
+  const { search } = searchState || {};
   const navigate = useNavigate();
 
   const handleSearch = (
