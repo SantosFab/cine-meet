@@ -6,13 +6,13 @@ import {
   isNumber,
 } from "./script";
 
-interface NavegatinProps {
+interface NavegationProps {
   currentPageString: string | undefined;
   lastPage: number;
   urlLocation: string;
 }
 
-const Navegatin: FunctionComponent<NavegatinProps> = ({
+const Navegation: FunctionComponent<NavegationProps> = ({
   currentPageString,
   lastPage,
   urlLocation,
@@ -38,4 +38,4 @@ const Navegatin: FunctionComponent<NavegatinProps> = ({
   );
 };
 
-export default Navegatin;
+export default Navegation;
