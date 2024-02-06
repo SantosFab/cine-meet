@@ -1,9 +1,8 @@
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 import CopyRight from "./CopyRight";
 
-describe("Compoment CopyRight - test", () => {
-  it("renders copyright information", () => {
+describe("Compoment CopyRight", () => {
+  it("should renders copyright information", () => {
     const { getByText } = render(<CopyRight />);
 
     expect(getByText(/Image by/i)).toBeInTheDocument();
