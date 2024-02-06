@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import Navegation from "./Navegation";
 
-describe("Component Navegation", () => {
+describe("Navegation Component", () => {
   const NavegationProps = {
     currentPageString: "3",
     lastPage: 10,

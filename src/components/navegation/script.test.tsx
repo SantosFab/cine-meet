@@ -4,7 +4,7 @@ import {
   isNumber,
 } from "./script";
 
-describe("Script of the Navegation", () => {
+describe("Navegation script", () => {
   it("should GeneratePaginationItems with 10 pages", () => {
     const generatePaginationItemsProps = {
       urlLocation: "exemplo",
