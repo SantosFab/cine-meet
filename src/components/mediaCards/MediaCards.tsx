@@ -15,23 +15,24 @@ const MediaCards: FunctionComponent<MediaCardsProps> = ({ results }) => (
   <Container className="d-flex flex-wrap justify-content-center MediaCards">
     {results?.map(({ id, overview, poster_path, title }: ResultItem) => (
       <div className="ms-3 py-3 d-flex FilmCard" key={id}>
+        {typeof poster_path}
         <Col>
           <Card>
             <Link to={`/Detail/${id}`}>
               <Card.Img
                 variant="top"
-                className={poster_path === null ? "imageDefault" : ""}
+                className={poster_path === undefined ? "imageDefault" : ""}
                 src={
-                  poster_path !== null ? urlBaseImg + poster_path : imageDefault
+                  poster_path !== undefined ? urlBaseImg + poster_path : imageDefault
                 }
                 alt={
-                  poster_path !== null
+                  poster_path !== undefined
                     ? `Poster do ${title}`
                     : "Imagem de Alexa do Pixabay"
                 }
               />
             </Link>
-            {poster_path === null && <Copyright />}
+            {poster_path === undefined && <Copyright />}
             <Card.Body>
               <Card.Title>{title} </Card.Title>
             </Card.Body>

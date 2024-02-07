@@ -6,7 +6,7 @@ export interface ResultItem {
   id: number;
   title: string;
   overview?: string;
-  poster_path?: string | null;
+  poster_path?: string ;
 }
 
 export interface FetchData {
