@@ -1,8 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 import { configureStore } from "@reduxjs/toolkit";
 import fetchReducer, { fetchMediaByGenre } from "./fetchMediaByGenre";
-import { mockResult, mockResultAnimacao } from "../../../../__test__/mock/mockResults";
 import { FetchData } from "../commonTypes/interface";
+import {
+  getSuccessResultPage1,
+  getSuccessResultPage2,
+} from "../../../../__test__/mock/fetchGenre/fetchGenre";
 
 // Estende o objeto axios com as funções de mock
 jest.mock("axios");
@@ -20,20 +23,6 @@ beforeEach(() => {
 
 describe("fetchMediaByGenre", () => {
   it("should fetch media by genre successfully", async () => {
-    const getSuccessResultPage1 = {
-      page: 1,
-      results: mockResult,
-      total_pages: 2,
-      total_results: 5,
-    };
-
-    const getSuccessResultPage2 = {
-      page: 2,
-      results: mockResultAnimacao,
-      total_pages: 2,
-      total_results: 5,
-    };
-
     // Configuração correta do mockResolvedValue
     mockedAxios.get.mockResolvedValueOnce({
       data: getSuccessResultPage1,
@@ -67,7 +56,7 @@ describe("fetchMediaByGenre", () => {
     mockedAxios.get.mockRejectedValue(new Error(errorMessage));
 
     // Certifique-se de que está usando o store configurado
-    await store.dispatch(fetchMediaByGenre({  }));
+    await store.dispatch(fetchMediaByGenre({}));
 
     // Obtenha o estado após o dispatch
     const state = store.getState();

@@ -1,4 +1,4 @@
-import { mockResult } from "../../../__test__/mock/mockResults";
+import { mockResult } from "../../../__test__/mock/resultItem/mockResultItem";
 import { renderRouter } from "../../../__test__/ProviderRouter/renderRouter";
 import MediaCards from "./MediaCards";
 

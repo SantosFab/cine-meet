@@ -1,4 +1,4 @@
-import { ResultItem } from "../../src/reducer/fetch/commonTypes/interface";
+import { ResultItem } from "../../../src/reducer/fetch/commonTypes/interface";
 
 export const mockResult: ResultItem[] = [
   {
