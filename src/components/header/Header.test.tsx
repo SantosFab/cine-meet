@@ -2,6 +2,7 @@ import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
+import { renderRouterWithRedux } from "../../../__test__/ProviderRouterWithRedux/renderRouterWithRedux";
 
 import Header from "./Header";
 
@@ -14,15 +15,11 @@ describe("Header Component", () => {
     },
   };
 
-  const renderHeader = (store: MockStoreEnhanced<unknown, {}>) => {
-    return render(
-      <Provider store={store}>
-        <Router>
-          <Header />
-        </Router>
-      </Provider>
-    );
-  };
+  const renderHeader = (store: MockStoreEnhanced<unknown, {}>) =>
+    renderRouterWithRedux({
+      store,
+      children: <Header/>
+    });
 
   it("should renders without crashing", () => {
     const store = mockStore(initialState);
