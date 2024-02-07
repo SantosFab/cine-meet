@@ -6,8 +6,11 @@ export const listItems = ({
 }: {
   str: string;
   data?: string | Descriptor[];
-}): JSX.Element => {
-  if (data && Array.isArray(data)) {
+}): JSX.Element | undefined => {
+  console.log(data, str);
+  if (data === "" || data?.length === 0) {
+    return <></>;
+  } else if (data && Array.isArray(data)) {
     const newData = data?.map((companie, index) => {
       return index === data.length - 1 ? companie.name : `${companie.name} | `;
     });
@@ -17,13 +20,11 @@ export const listItems = ({
         <strong>{str}:</strong> {newData}
       </>
     );
-  } else if (str !== undefined) {
+  } else {
     return (
       <>
         <strong>{str}:</strong> {data}
       </>
     );
-  } else {
-    return <></>;
   }
 };
