@@ -15,7 +15,6 @@ const MediaCards: FunctionComponent<MediaCardsProps> = ({ results }) => (
   <Container className="d-flex flex-wrap justify-content-center MediaCards">
     {results?.map(({ id, overview, poster_path, title }: ResultItem) => (
       <div className="ms-3 py-3 d-flex FilmCard" key={id}>
-        {typeof poster_path}
         <Col>
           <Card>
             <Link to={`/Detail/${id}`}>
