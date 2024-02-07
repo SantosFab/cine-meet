@@ -14,7 +14,7 @@ const initialState: SearchState = {
 export const fetchSearch = createAsyncThunk<FetchData, SearchParams>(
   "fetchSearch",
   async ({ query, page = 1 }) => {
-    const response = await axios(urlSearch, {
+    const response = await axios.get(urlSearch, {
       params: {
         query,
         language,
