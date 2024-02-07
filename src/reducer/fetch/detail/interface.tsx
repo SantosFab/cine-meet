@@ -8,15 +8,15 @@ export interface Descriptor {
 export interface DetailData {
   id: number;
   title: string;
-  tagline: string;
-  overview: string;
-  poster_path: string | undefined;
+  tagline?: string;
+  overview?: string;
+  poster_path?: string;
   original_title: string;
   original_language: string;
-  genres: Descriptor[];
-  production_companies: Descriptor[];
-  production_countries: Descriptor[];
-  release_date: string;
+  genres?: Descriptor[];
+  production_companies?: Descriptor[];
+  production_countries?: Descriptor[];
+  release_date?: string;
   popularity: string;
 }
 
