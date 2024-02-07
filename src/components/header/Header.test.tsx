@@ -1,13 +1,13 @@
+import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
-import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from "./Header";
 
-const mockStore = configureStore();
-
 describe("Header Component", () => {
+  const mockStore = configureStore();
+
   const initialState = {
     fetchSearch: {
       search: "",
