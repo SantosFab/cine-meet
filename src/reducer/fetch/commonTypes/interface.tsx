@@ -5,8 +5,8 @@ export interface FetchState {
 export interface ResultItem {
   id: number;
   title: string;
-  overview: string;
-  poster_path: string | null;
+  overview?: string;
+  poster_path?: string | null;
 }
 
 export interface FetchData {

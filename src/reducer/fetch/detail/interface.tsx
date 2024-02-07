@@ -1,16 +1,12 @@
-import { FetchState } from "../commonTypes/interface";
+import { FetchState, ResultItem } from "../commonTypes/interface";
 
 export interface Descriptor {
   id: number;
   name: string;
 }
 
-export interface DetailData {
-  id: number;
-  title: string;
+export interface DetailData extends ResultItem {
   tagline?: string;
-  overview?: string;
-  poster_path?: string;
   original_title: string;
   original_language: string;
   genres?: Descriptor[];
