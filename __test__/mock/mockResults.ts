@@ -12,7 +12,7 @@ export const mockResult: ResultItem[] = [
     id: 787699,
     title: "Wonka",
     overview:
-      "Um jovem Willy Wonka embarca em uma missão para espalhar alegria por meio de seu chocolate, que rapidamente se torna um fenômeno.",
+      "Um jovem Willy Wonka embarca em uma missão para...",
     poster_path: "/5IiODXjfLhVk5OhBlAqueCB4GQv.jpg",
   },
   {
@@ -25,7 +25,8 @@ export const mockResult: ResultItem[] = [
   {
     id: 572802,
     title: "Aquaman 2: O Reino Perdido",
-    poster_path: '/84ispMxgLDRvQaA6zlM9i7sdAAI.jpg',
+    poster_path: "/84ispMxgLDRvQaA6zlM9i7sdAAI.jpg",
+    overview: "",
   },
   {
     id: 940551,
