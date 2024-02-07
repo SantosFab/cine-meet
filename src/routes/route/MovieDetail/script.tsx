@@ -7,7 +7,6 @@ export const listItems = ({
   str: string;
   data?: string | Descriptor[];
 }): JSX.Element | undefined => {
-  console.log(data, str);
   if (data === "" || data?.length === 0) {
     return <></>;
   } else if (data && Array.isArray(data)) {
