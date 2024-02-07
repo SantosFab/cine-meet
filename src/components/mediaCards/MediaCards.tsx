@@ -20,18 +20,18 @@ const MediaCards: FunctionComponent<MediaCardsProps> = ({ results }) => (
             <Link to={`/Detail/${id}`}>
               <Card.Img
                 variant="top"
-                className={poster_path === undefined ? "imageDefault" : ""}
+                className={poster_path === null ? "imageDefault" : ""}
                 src={
-                  poster_path !== undefined ? urlBaseImg + poster_path : imageDefault
+                  poster_path !== null ? urlBaseImg + poster_path : imageDefault
                 }
                 alt={
-                  poster_path !== undefined
+                  poster_path !== null
                     ? `Poster do ${title}`
                     : "Imagem de Alexa do Pixabay"
                 }
               />
             </Link>
-            {poster_path === undefined && <Copyright />}
+            {poster_path === null && <Copyright />}
             <Card.Body>
               <Card.Title>{title} </Card.Title>
             </Card.Body>

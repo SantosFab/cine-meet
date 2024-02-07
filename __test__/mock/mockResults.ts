@@ -25,9 +25,13 @@ export const mockResult: ResultItem[] = [
   {
     id: 572802,
     title: "Aquaman 2: O Reino Perdido",
+    poster_path: '/84ispMxgLDRvQaA6zlM9i7sdAAI.jpg',
   },
   {
     id: 940551,
     title: "Patos!",
+    poster_path: null,
+    overview:
+      "A família Mallard está um pouco refém da rotina. Enquanto Mack, o pai, se contenta em manter sua família segura nos arredores de um lago da Nova Inglaterra para sempre, Pam, a mãe, está ansiosa para agitar as coisas e mostrar a seus filhos – o adolescente Dax e a patinha Gwen – o mundo inteiro. Quando uma família de patos migratórios aterrissa em seu lago com histórias emocionantes de lugares distantes, Pam convence Mack a embarcar em uma viagem em família, via Nova York, para a Jamaica tropical.",
   },
 ];
