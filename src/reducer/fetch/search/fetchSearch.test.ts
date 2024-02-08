@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { configureStore } from "@reduxjs/toolkit";
-import fetchReducer, { fetchSearch } from "./fetchSearch";
+import fetchReducer, { fetchSearch, setInputValue } from "./fetchSearch";
 import { FetchData } from "../commonTypes/interface";
 import {
   getSuccessResultPage1,
@@ -16,7 +16,7 @@ const store = configureStore({
   },
 });
 
-describe("fetchSearch", () => {
+describe("fetchSearch async", () => {
   it("should fetch media by genre successfully", async () => {
     mockedAxios.get.mockResolvedValueOnce({
       data: getSuccessResultPage1,
@@ -48,5 +48,35 @@ describe("fetchSearch", () => {
     const state = store.getState();
 
     expect(state.fetchSearch.error).toEqual(errorMessage);
+  });
+});
+
+describe("fetchSearch sync", () => {
+  const initialState = { data: null, error: undefined, search: "" };
+
+  it("should handle setInputValue", () => {
+    const action = setInputValue("test");
+    const state = fetchReducer(initialState, action);
+    expect(state.search).toEqual("test");
+  });
+
+  it("should handle fetchSearch.fulfilled", () => {
+    const action = {
+      type: fetchSearch.fulfilled.type,
+      payload: getSuccessResultPage1,
+    };
+    const state = fetchReducer(initialState, action);
+    expect(state.data).toEqual(getSuccessResultPage1);
+    expect(state.error).toBeUndefined();
+  });
+
+  it("should handle fetchSearch.rejected", () => {
+    const action = {
+      type: fetchSearch.rejected.type,
+      error: { message: "Test error" },
+    };
+    const state = fetchReducer(initialState, action);
+    expect(state.data).toBeNull();
+    expect(state.error).toEqual("Test error");
   });
 });

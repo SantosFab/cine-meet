@@ -6,6 +6,7 @@ import {
   getSuccessResultPage1,
   getSuccessResultPage2,
 } from "../../../../__test__/mock/fetchGenre/fetchGenre";
+import { MediaByGenreState } from "./interface";
 
 // Estende o objeto axios com as funções de mock
 jest.mock("axios");
@@ -17,11 +18,7 @@ const store = configureStore({
   },
 });
 
-beforeEach(() => {
-  jest.resetAllMocks();
-});
-
-describe("fetchMediaByGenre", () => {
+describe("fetchMediaByGenre async", () => {
   it("should fetch media by genre successfully", async () => {
     // Configuração correta do mockResolvedValue
     mockedAxios.get.mockResolvedValueOnce({
@@ -64,4 +61,28 @@ describe("fetchMediaByGenre", () => {
     // Agora você pode realizar as asserções sobre o estado do Redux
     expect(state.fetchData.error).toEqual(errorMessage);
   });
+});
+
+describe("fetchMediaByGenre sync", () => {
+  const initialState: MediaByGenreState = { data: null, error: undefined };
+
+  it("should handle fetchData.fulfilled", () => {
+    const action = {
+      type: fetchMediaByGenre.fulfilled.type,
+      payload: getSuccessResultPage1,
+    };
+    const state = fetchReducer(initialState, action);
+    expect(state.data).toEqual(getSuccessResultPage1);
+    expect(state.error).toBeUndefined();
+  });
+
+   test("should handle fetchData.rejected", () => {
+    const action = {
+      type: fetchMediaByGenre.rejected.type,
+      error: { message: "Test error" },
+    };
+    const state = fetchReducer(initialState, action);
+    expect(state.data).toBeNull();
+    expect(state.error).toEqual("Test error");
+  }); 
 });
