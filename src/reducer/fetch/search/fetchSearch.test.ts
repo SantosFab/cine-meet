@@ -5,7 +5,7 @@ import { FetchData } from "../commonTypes/interface";
 import {
   getSuccessResultPage1,
   getSuccessResultPage2,
-} from "../../../../__test__/mock/fetchGenre/fetchGenre";
+} from "../../../../__test__/mock/dataMovies/dataMovies";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
