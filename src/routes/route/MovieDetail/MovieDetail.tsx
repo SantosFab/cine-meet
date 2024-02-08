@@ -4,6 +4,7 @@ import imageDefault from "../../../assets/imageDefault.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import {
+  Countries,
   Descriptor,
   DetailParams,
   DetailState,
@@ -41,7 +42,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
     release_date,
   } = selectDetailState?.data || {};
 
-  const handleListItems = (str: string, data?: Descriptor[] | string) =>
+  const handleListItems = (str: string, data?: Descriptor[] | string | Countries[]) =>
     listItems({ str, data });
 
   useEffect(() => {

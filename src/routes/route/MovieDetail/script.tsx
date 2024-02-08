@@ -1,11 +1,11 @@
-import { Descriptor } from "../../../reducer/fetch/detail/interface";
+import { Countries, Descriptor } from "../../../reducer/fetch/detail/interface";
 
 export const listItems = ({
   str,
   data,
 }: {
   str: string;
-  data?: string | Descriptor[];
+  data?: string | Descriptor[] | Countries[];
 }): JSX.Element | undefined => {
   if (data === "" || data?.length === 0) {
     return <></>;
