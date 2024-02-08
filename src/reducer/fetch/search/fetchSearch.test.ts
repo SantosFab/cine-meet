@@ -10,14 +10,18 @@ import {
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-const store = configureStore({
-  reducer: {
-    fetchSearch: fetchReducer,
-  },
-});
-
 describe("fetchSearch async", () => {
+  const store = configureStore({
+    reducer: {
+      fetchSearch: fetchReducer,
+    },
+  });
+  
+  const query:string = 'test'
+
   it("should fetch media by genre successfully", async () => {
+    
+
     mockedAxios.get.mockResolvedValueOnce({
       data: getSuccessResultPage1,
     } as AxiosResponse<FetchData>);
@@ -26,13 +30,13 @@ describe("fetchSearch async", () => {
       data: getSuccessResultPage2,
     } as AxiosResponse<FetchData>);
 
-    await store.dispatch(fetchSearch({ query: "test" }));
+    await store.dispatch(fetchSearch({ query }));
 
     let state = store.getState();
 
     expect(state.fetchSearch.data).toEqual(getSuccessResultPage1);
 
-    await store.dispatch(fetchSearch({ query: "test" }));
+    await store.dispatch(fetchSearch({ query }));
 
     state = store.getState();
 
@@ -43,7 +47,7 @@ describe("fetchSearch async", () => {
 
     mockedAxios.get.mockRejectedValue(new Error(errorMessage));
 
-    await store.dispatch(fetchSearch({ query: "" }));
+    await store.dispatch(fetchSearch({ query }));
 
     const state = store.getState();
 
@@ -71,12 +75,14 @@ describe("fetchSearch sync", () => {
   });
 
   it("should handle fetchSearch.rejected", () => {
+    const errorMessage: string = "Test error";
+
     const action = {
       type: fetchSearch.rejected.type,
-      error: { message: "Test error" },
+      error: { message: errorMessage },
     };
     const state = fetchReducer(initialState, action);
     expect(state.data).toBeNull();
-    expect(state.error).toEqual("Test error");
+    expect(state.error).toEqual(errorMessage);
   });
 });
