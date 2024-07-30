@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { configureStore } from "@reduxjs/toolkit";
-import fetchReducer, { fetchMediaByGenre } from "./fetchMediaByGenre";
+import fetchReducer, { fetchMediaByGenre } from "./tempFile";
 import { FetchData } from "../commonTypes/interface";
 import {
   getSuccessResultPage1,

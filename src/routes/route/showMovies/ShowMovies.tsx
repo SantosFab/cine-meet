@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchMediaByGenre,
   selectStateMediaByGenre,
-} from "../../../reducer/fetch/mediasByGenre/fetchMediaByGenre";
+} from "../../../reducer/fetch/mediasByGenre/tempFile";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { useLocation, useParams } from "react-router-dom";
 import Navegation from "../../../components/navegation/Navegation";
