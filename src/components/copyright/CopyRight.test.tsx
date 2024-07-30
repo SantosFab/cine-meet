@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import CopyRight from "./tempFile";
+import CopyRight from "./CopyRight";
 
 describe("Compoment CopyRight", () => {
   it("should renders copyright information", () => {
