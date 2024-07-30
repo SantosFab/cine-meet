@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# [Cine-Meet](https://cine-meet.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**[Cine-Meet](https://cine-meet.vercel.app/)** é uma aplicação web que permite explorar filmes e séries usando a API do The Movie Database (TMDb). Com uma interface intuitiva e fácil de usar, você pode pesquisar por filmes, obter detalhes sobre lançamentos recentes, visualizar as classificações e muito mais.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+* **Pesquisa de Filmes e Séries:** Encontre filmes e séries pelo título, gênero ou ano de lançamento.
+* **Detalhes do Filme/Série:** Veja informações detalhadas sobre filmes e séries, incluindo sinopse, elenco e avaliações.
+* **Lançamentos Recentes:** Descubra os lançamentos mais recentes e acompanhe o que há de novo no mundo do entretenimento.
+* **Gêneros e Categorias:** Navegue por diferentes gêneros e categorias para encontrar algo que você vai gostar.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **Front-end:** HTML, CSS, TypeScript
+* **API:** The Movie Database (TMDb) API
+* **Unit test:** Jest
+* **Frameworks/Bibliotecas:**
+    * **React:** Para a construção de componentes de interface e gerenciamento de estado.
+    * **Redux:** Para gerenciamento de estado global da aplicação.
+    * **React Router:** Para navegação e roteamento dentro da aplicação.
+    * **Bootstrap:** Para estilos e layout responsivo.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Contribuição
+Se você deseja contribuir para este projeto, sinta-se à vontade para abrir um enviar um pull request. Toda contribuição é bem-vinda!
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contato
+Se você tiver perguntas ou precisar de suporte, entre em contato através do [e-mail](mailto:fabriciosantos.dev@gmail.com).
