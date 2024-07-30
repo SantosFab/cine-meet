@@ -4,7 +4,7 @@ import { ResultItem } from "../../reducer/fetch/commonTypes/interface";
 import { Link } from "react-router-dom";
 import { urlBaseImg } from "../../utils/env/env";
 import imageDefault from "../../assets/imageDefault.jpg";
-import Copyright from "../copyRight/CopyRight";
+import Copyright from "../tempPast/CopyRight";
 import "./mediaCards.css";
 
 interface MediaCardsProps {
