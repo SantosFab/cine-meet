@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchMediaByGenre,
   selectStateMediaByGenre,
-} from "../../../reducer/fetch/mediasByGenre/tempFile";
+} from "../../../reducer/fetch/mediaByGenre/fetchMediaByGenre";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { useLocation, useParams } from "react-router-dom";
 import Navegation from "../../../components/navegation/Navegation";
@@ -13,7 +13,7 @@ import "./showMovies.css";
 import {
   MediaByGenreParams,
   MediaByGenreState,
-} from "../../../reducer/fetch/mediasByGenre/interface";
+} from "../../../reducer/fetch/mediaByGenre/interface";
 
 interface GenreProps {}
 
