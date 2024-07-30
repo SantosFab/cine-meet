@@ -17,7 +17,7 @@ import "./movieDetail.css";
 import { useParams } from "react-router-dom";
 import { urlBaseImg } from "../../../utils/env/env";
 import { listItems } from "./script";
-import Copyright from "../../../components/copyright/CopyRight";
+import Copyright from "../../../components/copyRight/tempFile";
 
 interface MovieDetailProps {}
 
