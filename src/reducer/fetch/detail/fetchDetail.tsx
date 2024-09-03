@@ -28,7 +28,12 @@ export const fetchDetail = createAsyncThunk<DetailData, DetailParams>(
 const fetchReducer = createSlice({
   name: "fetchDetail",
   initialState,
-  reducers: {},
+  reducers: {
+    setInitialState(state) {
+      state.data = initialState.data;
+      state.error = initialState.error;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchDetail.fulfilled, (state, action) => {
       state.data = action.payload;
@@ -45,4 +50,5 @@ export const selectStateDetail = (state: { fetchDetail: DetailState }) =>
   state.fetchDetail;
 export const selectErrorDetail = (state: { fetchDetail: DetailState }) =>
   state.fetchDetail.error;
+export const { setInitialState } = fetchReducer.actions;
 export default fetchReducer.reducer;

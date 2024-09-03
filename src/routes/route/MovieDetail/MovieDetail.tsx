@@ -12,6 +12,7 @@ import {
 import {
   fetchDetail,
   selectStateDetail,
+  setInitialState,
 } from "../../../reducer/fetch/detail/fetchDetail";
 import "./movieDetail.css";
 import { useParams } from "react-router-dom";
@@ -42,13 +43,17 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
     release_date,
   } = selectDetailState?.data || {};
 
-  const handleListItems = (str: string, data?: Descriptor[] | string | Countries[]) =>
-    listItems({ str, data });
+  const handleListItems = (
+    str: string,
+    data?: Descriptor[] | string | Countries[]
+  ) => listItems({ str, data });
 
   useEffect(() => {
     dispatch(fetchDetail({ id: id }));
 
-    return () => {};
+    return () => {
+      dispatch(setInitialState());
+    };
   }, [dispatch, id]);
 
   return (
