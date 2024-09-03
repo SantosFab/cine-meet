@@ -63,7 +63,7 @@ const MovieDetail: FunctionComponent<MovieDetailProps> = () => {
           <Row className="mx-3 py-3">
             <Col xs="auto">
               <Image
-                className={poster_path === null ? "imageDefault" : ""}
+                className={"imageDefault"}
                 src={
                   poster_path !== null && poster_path !== undefined
                     ? urlBaseImg + poster_path
